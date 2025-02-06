@@ -40,14 +40,14 @@ body, html {
 .nav-section .nav-title h1 {
     color: var(--text-color);
     font-family: 'Poppins';
-    margin-left: 40px;
-    font-size: 40px;
+    margin-left: 2.5rem;
+    font-size: 2.5rem;
 }
 
 .nav-section .nav-selections {
     display: flex;
     align-items: center;
-    width: 400px;
+    width: 25rem;
     height: 100%;
 }
 
@@ -64,13 +64,13 @@ body, html {
 
 .nav-section .nav-selections ul a {
     color: var(--text-color-third);
-    padding: 10px;
+    padding: 1.25rem;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .nav-credentials {
-    width: 25%;
+    min-width: 40%;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -80,7 +80,7 @@ body, html {
 
 
 .nav-credentials .nav-log button {
-    width: 100px;
+    width: 7vw;
     height: 40px;
     border: none;
     margin: 20px;
