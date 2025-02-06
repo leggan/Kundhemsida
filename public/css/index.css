@@ -4,8 +4,9 @@
 :root {
     --text-color: #66FCF1;
     --text-color-second: #45A29E;
+    --text-color-third: #fff; 
     --background-color: #0B0C10;
-    --background-color-second: #1F2833;
+    --background-color-second: rgb(97,71,255);
     --main-color: #C5C6C7;
 }
 
@@ -14,6 +15,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins';
+    /* border: 1px solid red; */
 }
 
 body, html {
@@ -38,7 +40,8 @@ body, html {
 .nav-section .nav-title h1 {
     color: var(--text-color);
     font-family: 'Poppins';
-    margin-left: 20px;
+    margin-left: 40px;
+    font-size: 40px;
 }
 
 .nav-section .nav-selections {
@@ -60,37 +63,62 @@ body, html {
 }
 
 .nav-section .nav-selections ul a {
-    color: var(--main-color);
+    color: var(--text-color-third);
     padding: 10px;
     text-decoration: none;
+    font-size: 20px;
 }
 
-.nav-section .nav-searchbar {
-    width: 200px;
-    height: 50%;
-    position: relative;
-    margin-right: 20px;
-}
-
-.nav-section .nav-searchbar input{
-    width: 100%;
+.nav-credentials {
+    width: 25%;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.nav-credentials .nav-log button {
+    width: 100px;
+    height: 40px;
     border: none;
-    outline: none;
-    padding: 0 0 0 30px;
-    border-radius: 8px;
+    margin: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+
+.nav-section .nav-cart {
+    width: 40%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-section .nav-cart img {
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+
+}
+
+.nav-section .nav-cart img:hover {
+    background-color: #fff;
+    
 }
 
 
-.nav-section .nav-searchbar svg {
-    position: absolute;
-    left: 5px; /* Adjust as needed */
-    top: 50%;
-    transform: translateY(-50%); /* Centers it vertically */
-}
+
+
+
+
 
 .main-section {
-    background-image: url(../img/image.png);
+    background-image: url(../img/background.jpg);
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -98,6 +126,9 @@ body, html {
     background-size: cover;
     position: relative;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* .main-section::after {
@@ -110,58 +141,75 @@ body, html {
     left: 0;
 } */
 
-.main-section .left-section {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: relative;
-}
 
 
-.main-section .left-section img {
-    max-width: 60%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.main-section .left-section img::before {
-    content: '';
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.75);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 10px solid blue;
-}
 
 
-.main-section .right-section {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.main-section .right-section .search-section {
-    width: 70%;
+.main-section .search-section {
+    width: 40%;
     height: 20%;
     background-color: var(--main-color);
-    border-radius: 10px;
+    border-radius: 50px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-evenly;
+    position: relative;
 
 }
 
-.main-section .right-section .search-section input {
-    width: 60%;
-    height: 90%;
-    border-radius: 10px;
-    outline: none;
+
+
+.main-section .search-section input{
+    width: 75%;
+    height: 50%;
     border: none;
-    padding-right: 20px;
+    outline: none;
+    padding: 0 0 0 50px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: var(--background-color-second);
+    color: #fff ;
+    font-size: 18px;
+}
+
+.main-section .search-section input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+
+
+.main-section .search-section button {
+    height: 50%;
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-size: 18px;
+}
+
+.main-section .bottom-section {
+    width: 60%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-section .bottom-section .button-section {
+    width: 70%;
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.main-section .bottom-section button {
+    background-color: var(--background-color-second);
+    width: 300px;
+    height: 100px;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 30px;
+    font-family: 'Open Sans';
 }
