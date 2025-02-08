@@ -3,62 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Website</title>
     <link href="/css/index.css" rel="stylesheet">
-    <script src="/js/main.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <div id="wrapper">
         <nav>
-            <div class="left-section">
-                <ul>
-                    <li><a href="#">Hem</a></li>
-                    <li><a href="#">Restauranger</a></li>
-                    <li><a href="#">Om oss</a></li>
-
-                </ul>
-                
-            </div>
-            <div class="logo-section">
-                <h3>matLeverans.se</h3>
-            </div>
-            <div class="right-section">
-                <ul>
-                    <div class="contact-btn">
-                        <button>Kontakta oss</button>
-                    </div>
-                    <div class="cart-section">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="44px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/></svg>
-                    </div>
-                    <div class="account-section">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960" width="60px" fill="#fff" id="profileLogo">
-                            <path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/>
-                        </svg>
-                        <div class="" id="account-hide">
-                            <button id="log-in" type="submit">Logga in</button>
-                            <button id="register">Registera</button>
-                        </div>
-                    </div>
-                </ul>
+            <div id="nav-bar">
+                <div id="logo">
+                    <img src="../img/logo.png">
+                </div>
+                <div class="nav-items">
+                    <ul>
+                        <li><a>Hem</a></li>
+                        <li><a>Om oss</a></li>
+                        <li><a>Pages</a></li>
+                        <ul id="nav-pages">
+                            <li><a>Page 1</a></li>
+                            <li><a>Page 2</a></li>
+                            <li><a>Page 3</a></li>
+                            <li><a>Page 4</a></li>
+                        </ul>
+                        <li><a>Kontakta oss</a></li>
+                    </ul>
+                </div>
+                <div id="nav-tab">
+                    <ul>
+                        <li>
+                            <img src="/img/call_44dp_F19E39_FILL0_wght400_GRAD0_opsz48.svg" id="phone">
+                            <p>+46 123 123 33 33</p>
+                        </li>
+                        <li>
+                            <img src="/img/search_44dp_F19E39_FILL0_wght400_GRAD0_opsz48.svg" id="search">
+                        </li>
+                        <li>
+                            <img src="/img/shopping_bag_44dp_FFF_FILL0_wght400_GRAD0_opsz48.svg" id="cart"> 
+                        </li>
+                        <li id="log-in">
+                            <a>
+                                Logga In
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#fff" id="sign-in">
+                                    <path d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <section>
-            <div class="title">
-                <h1>Beställ din favoritmat - snabbt och smidigt!</h1>
-                <h3>Välj bland hundratals restauranger nära dig</h3>
-            </div>
-            <div class="search-section">
-                <div class="search-bar">
-                    <input type="text" placeholder="Vad är du sugen på idag?" name="search-bar">
+        <section id="hero">
+            <div class="main">
+                <div class="main-banner">
+                    <h1>Maten du älskar.</h1>
+                    <h3>- till din dörr</h3>
+                    <br>
+                    <h4>Få det leverat rakt till din dörr</h4>
                 </div>
-                <div class="cta-btns">
-                    <div class="restaruant-btn">
-                        <button>Se restauranger</button>
-                    </div>
-                    <div>
-                        <button id="order-btn">Beställ nu </button>
-                    </div>
+                <div class="input-section">
+                    <form>
+                        <input type="text" placeholder="Skriv din address.">
+                        <button>Sök</button>
+                    </form>
                 </div>
             </div>
         </section>
