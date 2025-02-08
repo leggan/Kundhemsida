@@ -198,20 +198,21 @@ nav {
 .main-banner {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .main-banner h1 {
     font-family: 'Tangerine';
     color: #fff;
-    font-size: 5rem;
+    font-size: clamp(2rem, 6vw, 8rem);
     line-height: 5rem;
 }
 
 .main-banner h3 {
     font-family: 'Birthstone';
     color: #fff;
-    font-size: 2rem;
-    line-height: 1rem;
+    font-size: clamp(1rem, 3vw, 6rem);
+    line-height: clamp(0.5rem, 1.3vw, 3rem);
     font-weight: normal;
 }
 
@@ -221,7 +222,7 @@ nav {
 }
 
 .input-section {
-    width: 400px;
+    width: clamp(200px, 500px, 700px);
     height: 30vh;
     display: flex;
     justify-content: center;
@@ -229,14 +230,14 @@ nav {
 }
 
 .input-section form {
-    width: 400px;
-    height: 12vh;
+    width: clamp(200px, 500px, 700px);
+    height: clamp(8vh, 12vh, 16vh);
     position: relative;
 }
 
 .input-section input {
     width: 100%;
-    height: 12vh;
+    height: clamp(5vh, 12vh, 9vh);
     border: none;
     outline: none;
     border-radius: 16px;
@@ -247,7 +248,7 @@ nav {
     position: absolute;
     top: 6px;
     right: 8px;
-    height: 10vh;
+    height: clamp(calc(5vh - 2vh), calc(12vh - 2vh), calc(9vh - 2vh));
     padding: 0 40px;   
     border-radius: 20px;
     outline: none;
