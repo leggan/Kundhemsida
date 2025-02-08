@@ -240,8 +240,9 @@ nav {
     height: clamp(5vh, 12vh, 9vh);
     border: none;
     outline: none;
-    border-radius: 16px;
+    border-radius: 30px;
     padding: 24px;
+    font-size: 1.2vw;
 }
 
 .input-section button {
@@ -254,4 +255,5 @@ nav {
     outline: none;
     border: none;
     background-color: #de9235;
+    font-size: 1.2vw;
 }
