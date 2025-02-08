@@ -237,23 +237,24 @@ nav {
 
 .input-section input {
     width: 100%;
-    height: clamp(5vh, 12vh, 9vh);
+    height: clamp(5vh, 12vh, 7vh);
     border: none;
     outline: none;
     border-radius: 30px;
     padding: 24px;
-    font-size: 1.2vw;
+    font-size: clamp(1rem, 1.1vw, 1.2rem);
 }
 
 .input-section button {
     position: absolute;
-    top: 6px;
-    right: 8px;
-    height: clamp(calc(5vh - 2vh), calc(12vh - 2vh), calc(9vh - 2vh));
+    right: 5px;
+    top: 60%;
+    transform: translateY(-50%);
+    height: clamp(calc(5vh - 2vh), calc(12vh - 2vh), calc(7vh - 2vh));
     padding: 0 40px;   
-    border-radius: 20px;
+    border-radius: 30px;
     outline: none;
     border: none;
     background-color: #de9235;
-    font-size: 1.2vw;
+    font-size: clamp(16px, 1.2vw, 1.05rem);
 }
