@@ -250,7 +250,7 @@ nav {
     right: 5px;
     top: 60%;
     transform: translateY(-50%);
-    height: clamp(calc(5vh - 2vh), calc(12vh - 2vh), calc(7vh - 2vh));
+    height: clamp(calc(5vh - 2vh), 6vh, calc(7vh - 2vh));
     padding: 0 40px;   
     border-radius: 30px;
     outline: none;
