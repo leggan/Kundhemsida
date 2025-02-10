@@ -100,11 +100,25 @@ nav {
 }
 
 .nav-items ul li a {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
     padding: 15px 20px;
     font-size: 16px;
+    transition: all .3s ease-in-out;
+    position: relative;
+} 
 
+.nav-items ul li a:hover {
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+    animation: underline .3s ease-in-out 0s infinite;
 }
+
+@keyframes underline {
+    
+}
+
+
+
 
 #nav-pages {
     display: none;
@@ -194,7 +208,8 @@ nav {
 
 .main {
     width: 60%;
-    height: 360px;
+    height: clamp(0px, 40vh, 360px); 
+    /* 250px */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -274,7 +289,7 @@ nav {
     background: linear-gradient(93.93deg, #D8AB37 0%, #F18345 100%);
     font-size: 16px;
     padding: 0 45px;
-    height: 64px;
+    height: clamp(32px, 9.6vh, 64px);
     border: none;
     color: #fff;
     position: absolute;
