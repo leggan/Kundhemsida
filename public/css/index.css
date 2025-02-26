@@ -2,16 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --text-color: #66FCF1;
-    --text-color-second: #45A29E;
-    --text-color-third: #fff; 
-    --background-color: #0B0C10;
-    --background-color-second: rgb(97,71,255);
-    --main-color: #C5C6C7;
+    --main-color:; 
+    --primary-color: rgb(33,164,93);
+    --secondary-color: rgb(241,238,184);
+
+
 }
+
+
 
 * {
     margin: 0;
@@ -89,34 +89,42 @@ nav {
     position: relative;
 }
 
-.nav-items ul li:nth-child(1)::after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 5px;
-    width: 22px;
-    height: 22px;
-    background-image: url(../img/logo.png);
-    background-size: contain;
-}
+
 
 .nav-items ul li a {
     color: rgba(255, 255, 255, 0.7);
-    padding: 15px 20px;
+    margin: 15px 20px;
     font-size: 16px;
     transition: all .3s ease-in-out;
     position: relative;
 } 
 
+
 .nav-items ul li a:hover {
     color: rgba(255, 255, 255, 1);
     cursor: pointer;
-    animation: underline .3s ease-in-out 0s infinite;
 }
 
-@keyframes underline {
-    
+.nav-items ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background-color: #fff;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
+
+.nav-items ul li a:hover::after {
+    width: 100%;
+}
+
+
+
+
+
+
 
 
 
@@ -193,11 +201,16 @@ nav {
     align-items: center;
     justify-content: space-evenly;    
     cursor: pointer;
+    color: #fff;
+    text-decoration: none;
 }
+
 
 #log-in a img {
     fill: blue;
 }
+
+
 
 #hero {
     width: 100%;
@@ -302,6 +315,7 @@ nav {
 .card-section {
     width: 100%;
     height: 50vh;
+    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -317,6 +331,7 @@ nav {
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat';
+
 }
 
 .card-text {
