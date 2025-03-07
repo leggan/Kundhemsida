@@ -1,0 +1,22 @@
+Express känner av just folder "views" så man behöver inte sätta
+ejs-folder till "views".
+
+Views folder är till för alla sidor / ejs sidor.
+
+Sätt view-engine till ejs.
+
+Man kan också föra ner data igenom res.render som ett option.
+T.ex res.render('filnamn', {name : "Kyle"})
+Variablen name kan nås från ejs-sidan
+
+app.use(express.urlencoded({extended: false})) 
+Detta gör så att du kan nå t.ex HTML formulär direkt i req.body
+
+För varje input-fält finns det "name=".
+Om vi hade haft "name="Love""
+Då kan vi nå det genom req.body.Love
+
+Använd bcrpyt för hashedPassword
+
+För att göra login mycket enklare kan man använda middleware "passport".
+Detta gör somsagt att loginsessioner blir mycket enklare och man slipper göra mycket själv.
