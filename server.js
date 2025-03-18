@@ -31,7 +31,7 @@ app.use(
         resave: false,
         store: store,
         cookie: {
-            maxAge: 60000 * 60
+            maxAge: 60000
         }
     })
 )
@@ -45,7 +45,7 @@ app.use((req, res, next) => {
     console.log(`METHOD: ${req.method}`)
     console.log(`REQ SESSION: ${JSON.stringify(req.session)}`)
     console.log(`AUTHENTICATED: ${req.isAuthenticated()}`)
-    console.log(`REQ USER: ${req.user}`)
+    console.log(`REQ USER: ${req.user ? req.user: 'Nothing'}`)
     console.log(`_______________________________`)
     next()
 })
@@ -64,7 +64,11 @@ async function connectDB() {
 
 
 app.get('/', (req, res) => {
-    res.render('index.ejs', {username: req.user.username})
+    if(req.isAuthenticated())
+        res.render('index.ejs', {username: req.user.username})
+    else {
+        return res.redirect('/login')
+    }
 })
 
 app.get('/profile', (req, res) => {
