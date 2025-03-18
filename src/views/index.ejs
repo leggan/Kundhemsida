@@ -4,33 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
+  <link href="/css/index.css" rel="stylesheet">
+  <script src="/js/script.js" defer></script>
 </head>
 <body>
   <header>
     <nav>
       <img src="/img/logo.png" id="logo">
+      <ul id="ul-nav">
+        <li><a href="#">Hem</a></li>
+        <li><a href="#">Meny</a></li>
+        <li><a href="#">Beställ</a></li>
+        <li><a href="#">Om oss</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Kundservice</a></li>
+      </ul>
+      <% if (user) { %>
+        <div class="profile-container">
+          <!-- Profilknapp -->
+          <button id="profile-btn" class="profile-button">
+              <img class="avatar" src="/img/user-avatar.png" alt="User photo">
+          </button>
+  
+          <!-- Dropdown-meny -->
+          <div id="profile-dropdown" class="dropdown-menu hidden">
+              <div class="dropdown-header">
+                  <p class="user-name"><%= user.username %></p>
+                  <p class="user-email"><%= user.email %></p>
+              </div>
+              <ul class="dropdown-list">
+                  <li><a href="#">Profil</a></li>
+                  <li><a href="#">Mina beställningar</a></li>
+                  <li><a href="#">Inställningar</a></li>
+              </ul>
+              <div class="dropdown-footer">
+                  <a href="/sign-out" class="sign-out">Sign out</a>
+              </div>
+          </div>
+      </div>
+  
+      <% } else { %>
+        <a href="/login">
+          <button type="submit" id="login-btn">Logga in</button>
+        </a>
+      <% } %>
     </nav>
   </header>
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Njut av din 
+        <br>
+        favoritmat nära dig.
+      </h1>
+      <div class="customers">
+        <div class="customer">
+          <img src="/img/customer.png">
+          <img src="/img/customer.png">
+          <img src="/img/customer.png">
+        </div>
+        <p>Över 4600 kunder – gå med och <br>börja beställa nu!</p>
 
-    }
-    nav {
-      width: 100%;
-      height: 15vh;
-      border: 1px solid red;
-      display: flex;
-      align-items: center;
-    }
-
-    #logo {
-      width: 192px;
-      height: auto;
-    }
-  </style>
+      </div>
+      <div class="hero-btns">
+        <button>Beställ nu</button>
+        <button>Skapa konto</button>
+      </div>
+    </div>
+    <figure>
+      <img src="/img/hero.png">
+    </figure>
+  </section>
 </body>
 </html>

@@ -64,11 +64,7 @@ async function connectDB() {
 
 
 app.get('/', (req, res) => {
-    if(req.isAuthenticated())
-        res.render('index.ejs', {username: req.user.username})
-    else {
-        return res.redirect('/login')
-    }
+    res.render('index.ejs', {user: req.user})
 })
 
 app.get('/profile', (req, res) => {
