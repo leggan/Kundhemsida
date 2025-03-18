@@ -4,10 +4,10 @@ import cookieParser from 'cookie-parser'
 import mongoose from 'mongoose'
 import session from 'express-session'
 import passport from 'passport'
-import userSchema from './schema/userSchema.js'
-import configurePassport from './strategies/local-strategy.js'
-import User  from './schema/userSchema.js'
+import configurePassport from './src/strategies/local-strategy.js'
+import UserModel  from './src/schema/userSchema.js'
 import connectMongoDBSession  from 'connect-mongodb-session'
+const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
 configurePassport()
@@ -19,10 +19,9 @@ const store = new MongoDBStore({
 
 
 const app = express()
-
 app.use(express.json())
 app.set('view-engine', 'ejs')
-app.set('views', './views')
+app.set('views', './src/views')
 app.use(express.urlencoded({extended: false})) 
 app.use(
     session({
@@ -31,7 +30,7 @@ app.use(
         resave: false,
         store: store,
         cookie: {
-            maxAge: 60000
+            maxAge: 60000 * 60
         }
     })
 )
@@ -96,13 +95,25 @@ app.get('/register', (req, res) => {
 
 app.post('/register', async (req, res) => {
     const username = req.body.username
+    const email = req.body.email
+    console.log(`EMAILADDRESS: ${email}`)
     try {
+        const findEmailUser = await User.findOne({email: email})
+        const usernameUser = await User.findOne({username: username })
+        if(usernameUser && findEmailUser) {
+            return res.json({message: 'Användarnament och emailaddressen är upptagen.'})
+        }
+        if(findEmailUser){
+            return res.json({message: 'Emailaddressen är redan registrerad'})
+        }
+        if(usernameUser) {
+            return res.json({message: 'Användarnamnet är upptaget'})
+        }
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const newUser = await User.create({username: username, password: hashedPassword})
-        await newUser.save()
-        return res.redirect('/', {newUser})
-    } catch (error){
-        return res.json({message: e})
+        const newUser = await User.create({username: username, email: email, password: hashedPassword})
+        return res.redirect(301, '/');
+    } catch (error) {
+        return res.status(500).send({ message: error.message || "Internal Server Error" });
     }
 })
 

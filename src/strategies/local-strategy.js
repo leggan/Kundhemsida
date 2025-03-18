@@ -7,11 +7,11 @@ const {userSchema, User} = UserModel
  
 const configurePassport = async () => {
     passport.use(
-        new Strategy(async(username, password, done) => {
-            if(!username  || !password) {
+        new Strategy({usernameField: 'email'}, async function(email, password, done) {
+            if(!email  || !password) {
                 return done('1', false)
             } else {
-                const findUser = await User.findOne({username: username}) 
+                const findUser = await User.findOne({email: email}) 
                 console.log(`FindUser PSW: ${findUser}`)
                 if(findUser) {
                     try {
