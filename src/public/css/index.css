@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 :root {
 --green: #21a35f;
 --green-hover: #07944B;
@@ -316,4 +319,68 @@ figure img:hover {
 
 .sign-out:hover {
     background: #ffe5e5;
+}
+
+/* POPULAR DISHES */
+
+.popular-dishes {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    align-self: center;
+}
+
+.popular-dishes h1 {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 3.95em;
+    font-weight: bold;
+    margin: 40px 0px 100px 0px;
+    max-width: fit-content;
+    border: 1px solid red;
+}
+
+.dishes {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    border: 1px solid red;
+    display: flex;
+    max-width: fit-content;
+}
+
+.dishes-left {
+    width: 50%;
+    height: 100%;
+    border: 1px solid blue;
+    padding-left: 10px;
+}
+
+.dishes-left h1 {
+    font-size: 1.5em;
+    margin: 12px 0px;
+}
+
+.dishes-paragraf {
+    margin-bottom: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dish-price {
+    color: red;
+    font-family: 'Montserrat';
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.ursprungligen {
+    font-family: 'Montserrat';
+    color: #282828;
+}
+
+.ursprungligen span {
+    text-decoration: line-through;
 }

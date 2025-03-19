@@ -108,7 +108,7 @@ app.post('/register', async (req, res) => {
         }
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         const newUser = await User.create({username: username, email: email, password: hashedPassword})
-        return res.redirect(301, '/');
+        return res.redirect(301, '/login');
     } catch (error) {
         return res.status(500).send({ message: error.message || "Internal Server Error" });
     }
