@@ -13,41 +13,50 @@ document.addEventListener("DOMContentLoaded", () => {
     //     }
     // });
 
-    // let index = 0;
-    // const slides = document.querySelectorAll(".dishes");
-    
-    // function changeSlide() {
-    //     let currentSlide = slides[index]; // Nuvarande slide
-    //     let nextIndex = (index + 1) % slides.length; // Nästa slide index
-    //     let nextSlide = slides[nextIndex]; // Nästa slide element
-    
-    //     // Fade out nuvarande slide
-    //     currentSlide.style.opacity = "0";
-    
-    //     setTimeout(() => {
-    //         currentSlide.style.visibility = "hidden"; // Dölj den gamla sliden
-    //         currentSlide.classList.remove("dishes-active");
-    
-    //         // Visa och fade in nästa slide
-    //         nextSlide.style.visibility = "visible";
-    //         nextSlide.classList.add("dishes-active");
-    //         setTimeout(() => {
-    //             nextSlide.style.opacity = "1";
-    //         }, 50); // Liten delay för att säkerställa att visibility hunnit ändras
-    
-    //         // Uppdatera indexet
-    //         index = nextIndex;
-    //     }, 1000); // Låt fade-out ske under 1 sekund innan nästa slide visas
-    // }
-    
-    // // Byt slide var tredje sekund
-    // setInterval(changeSlide, 3000);
-    
-    // // Starta första sliden direkt
-    // slides[index].style.visibility = "visible";
-    // slides[index].style.opacity = "1";
-    // slides[index].classList.add("dishes-active");
-    
-    
     
 });
+
+
+const slides = document.querySelectorAll(".dishes");
+const dotItem = document.querySelectorAll('.item')
+let slideIndex = 0;
+let intervalId = null;
+
+
+function initializeSlider(){
+    if(slides.length > 0){
+        slides[slideIndex].classList.add("dishes-active");
+        dotItem[slideIndex].classList.add('active')
+        intervalId = setInterval(nextSlide, 5000);
+    }
+}
+
+function showSlide(index){
+    if(index >= slides.length){
+        slideIndex = 0;
+    }
+    else if(index < 0){
+        slideIndex = slides.length - 1;
+    }
+
+    slides.forEach(slide => {
+        slide.classList.remove("dishes-active");
+    });
+    dotItem.forEach(dot => {
+        dot.classList.remove("active");
+    });
+    slides[slideIndex].classList.add("dishes-active");
+    dotItem[slideIndex].classList.add('active')
+
+}
+
+function prevSlide(){
+    clearInterval(intervalId);
+    slideIndex--;
+    showSlide(slideIndex);
+}
+
+function nextSlide(){
+    slideIndex++;
+    showSlide(slideIndex);
+}

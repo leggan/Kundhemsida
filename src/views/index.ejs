@@ -74,39 +74,103 @@
       <img src="/img/hero.png">
     </figure>
   </section>
-
-  <section class="popular-dishes">
-    <h1 class="title-h1">Våra populär maträtter</h1>
-    <div class="dishes dishes-active">
-      <div class="dishes-left ">
-        <h1>Friterad kyckling</h1>
-        <p class="dishes-paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Dolorum quaerat rem commodi amet voluptatibus ratione quasi 
-          perferendis autem similique quisquam et quis, 
-          laboriosam nihil velit aperiam ex quibusdam sequi quam?
-        </p>
-        <p class="dish-price">126,00 kr</p>
-        <p class="ursprungligen">Ursprungligen: <span>158,00kr</span><span>-20%</span></p>
-        <button type="submit" id="add-button">
-          <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
-            <!-- Fylld grön cirkel -->
-            <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
-            <!-- Vitt plustecken -->
-            <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
-          </svg>
-        </button>
-      </div>
-      <div class="dishes-right">
-        <img src="/img/food-bowl-1.png">
-      </div>
-      
+  <div class="popular-inner-items">
+    <div id="arrow">
+      <button class="prev" onclick="prevSlide()" id="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg>
+      </button>
     </div>
+    <section class="popular-dishes">
+      <h1 class="title-h1">Våra populär maträtter</h1>
 
-    <div class="carousel-inner">
-      <div class="active item"></div>
-      <div class="item"></div>
-      <div class="item"></div>
+        <div class="dishes dishes-active">
+          <div class="dishes-left ">
+            <h1>Friterad kyckling</h1>
+            <p class="dishes-paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Dolorum quaerat rem commodi amet voluptatibus ratione quasi 
+              perferendis autem similique quisquam et quis, 
+              laboriosam nihil velit aperiam ex quibusdam sequi quam?
+            </p>
+            <p class="dish-price">126,00 kr</p>
+            <p class="ursprungligen">Ursprungligen: <span>158,00kr</span><span>-20%</span></p>
+            <button type="submit" id="add-button">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                <!-- Fylld grön cirkel -->
+                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                <!-- Vitt plustecken -->
+                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="dishes-right">
+            <img src="/img/food-bowl-1.png">
+          </div>
+          
+        </div>
+        <div class="dishes">
+          <div class="dishes-left ">
+            <h1>Pannkaka</h1>
+            <p class="dishes-paragraf">Pannkakor är en härlig rätt som kan varieras på många sätt. 
+              De kan vara både tunna och frasiga eller tjocka och fluffiga. 
+              Med bara några få ingredienser som mjöl, mjölk och ägg kan man skapa en måltid som både är enkel och god. 
+              Serveras de med sylt, grädde eller kanske en skvätt sirap blir de snabbt en favorit vid frukostbordet
+            </p>
+            <p class="dish-price">126,00 kr</p>
+            <p class="ursprungligen">Ursprungligen: <span>158,00kr</span><span>-20%</span></p>
+            <button type="submit" id="add-button">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                <!-- Fylld grön cirkel -->
+                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                <!-- Vitt plustecken -->
+                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="dishes-right">
+            <img src="/img/food-bowl-1.png">
+          </div>
+          
+        </div>
+        <div class="dishes">
+          <div class="dishes-left ">
+            <h1>Friterad kyckling</h1>
+            <p class="dishes-paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+              Dolorum quaerat rem commodi amet voluptatibus ratione quasi 
+              perferendis autem similique quisquam et quis, 
+              laboriosam nihil velit aperiam ex quibusdam sequi quam?
+            </p>
+            <p class="dish-price">126,00 kr</p>
+            <p class="ursprungligen">Ursprungligen: <span>158,00kr</span><span>-20%</span></p>
+            <button type="submit" id="add-button">
+              <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                <!-- Fylld grön cirkel -->
+                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                <!-- Vitt plustecken -->
+                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+              </svg>
+            </button>
+          </div>
+          <div class="dishes-right">
+            <img src="/img/food-bowl-1.png">
+          </div>
+          
+        </div>
+
+
+    </section>
+    <div id="arrow">
+      <button class="next" onclick="nextSlide()" id="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg>
+      </button>
+    </div>
   </div>
-  </section>
+  
+  <div class="carousel-inner">
+    <div class="active item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+
+
 </body>
 </html>
