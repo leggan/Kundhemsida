@@ -38,7 +38,7 @@
                   <li><a href="#">Inställningar</a></li>
               </ul>
               <div class="dropdown-footer">
-                  <a href="/sign-out" class="sign-out">Sign out</a>
+                  <a href="/logout" class="sign-out">Sign out</a>
               </div>
           </div>
       </div>
@@ -235,45 +235,64 @@
     </div>
   </section>
 
-  <section id="button-group">
-
+  <section class="container-section">
+    <div class="content">
+        <div class="text">
+            <h2>Vi uppfann inte <span>matleveransen.</span></h2>
+            <p>Men vi är passionerade matälskare, 
+              snabba bud och smarta problemlösare. 
+              Små nog att vara flexibla och personliga, 
+              men stora nog att leverera din favoritmat – precis när du vill ha den.
+            </p>
+            <p>Vi brinner för god mat, snabb service och smidiga lösningar. 
+              Alltid färskt, alltid snabbt, alltid på dina villkor.
+            </p>
+        </div>
+        <div class="images">
+          <div class="image">
+            <img src="/img/restaurant1.jpg" alt="Fin restaurang">
+          </div>
+          <a href="#" class="image-btn">Beställ</a>
+          <div class="image">
+            <img src="/img/levera-mat.jpg" alt="Kontorsinnehåll 2">
+          </div>
+        </div>
+        <button></button>
+    </div>
   </section>
+</body>
+</html>
 <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="logo">
-                    <a href="https://flowbite.com/">
-                        <img src="https://flowbite.com/docs/images/logo.svg" alt="FlowBite Logo">
-                        <span>Flowbite</span>
+                    <a href="/">
+                        <img src="/img/logo.png" alt="logga">
                     </a>
                 </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2004.5446666522728!2d17.647234476003064!3d59.84009427003337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fcecb6e7e556d%3A0x6de4f4dcd95557ea!2sNTI%20Gymnasiet%20Uppsala!5e0!3m2!1ssv!2sse!4v1742561302357!5m2!1ssv!2sse" width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <div class="links">
                     <div class="link-group">
-                        <h2>Resources</h2>
+                        <h2>Resurser</h2>
                         <ul>
-                            <li><a href="https://flowbite.com/">Flowbite</a></li>
-                            <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
+                            <li><a href="https://expressjs.com/" target="_blank">ExpressJS</a></li>
+                            <li><a href="https://www.mongodb.com/" target="_blank">MongoDB</a></li>
+                            <li><a href="https://www.passportjs.org/" target="_blank">PassportJS</a></li>
+                            <li><a href="https://mongoosejs.com/" target="_blank">Mongoose</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
-                        <h2>Follow us</h2>
+                        <h2>Juridiskt</h2>
                         <ul>
-                            <li><a href="https://github.com/themesberg/flowbite">Github</a></li>
-                            <li><a href="https://discord.gg/4eeurUVvTy">Discord</a></li>
-                        </ul>
-                    </div>
-                    <div class="link-group">
-                        <h2>Legal</h2>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Integritetspolicy</a></li>
+                            <li><a href="#">Användarvillkor</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <hr>
             <div class="footer-bottom">
-                <span>&copy; 2025 <a href="/">Flowbite™</a>. All Rights Reserved.</span>
+                <span>&copy; 2025 <a href="/">HungerJet™</a>. Alla rättigheter förbehållna.</span>
                 <div class="social-icons">
                     <a href="#" class="icon">
                       
@@ -286,5 +305,18 @@
             </div>
         </div>
     </footer>
+    <script>
+      document.querySelector('.sign-out').addEventListener('click', async () => {
+    try {
+        const response = await fetch('/logout', { method: 'POST', credentials: 'include' });
+        const data = await response.json();
+        alert(data.message);  // Visa meddelande
+        window.location.href = '/login'; // Skicka användaren till inloggningssidan
+    } catch (error) {
+        console.error('Fel vid utloggning:', error);
+    }
+});
+
+    </script>
 </body>
 </html>

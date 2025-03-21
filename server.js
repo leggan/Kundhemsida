@@ -26,7 +26,7 @@ app.use(express.static('./src/public'))
 app.use(express.urlencoded({extended: false})) 
 app.use(
     session({
-        secret: 'anson the dev',
+        secret: 'secret',
         saveUninitialized: false,
         resave: false,
         store: store,
@@ -113,6 +113,22 @@ app.post('/register', async (req, res) => {
         return res.status(500).send({ message: error.message || "Internal Server Error" });
     }
 })
+
+
+
+app.get('/logout', (req, res) => {
+    
+})
+
+app.post('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ message: "Kunde inte logga ut" });
+        }
+        res.clearCookie('secret'); // Radera sessionscookie
+        res.json({ message: "Utloggad" });
+    });
+});
 
 
 
