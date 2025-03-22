@@ -2,79 +2,11 @@
 
 
 :root {
---green: #21a35f;
---green-hover: #07944B;
---black: #000000;
---white: #fff;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-nav {
-position: relative;
-  width: 100%;
-  height: 15vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6%;
-}
-
-#logo {
-  width: auto;
-  max-height: 25vh;
-  overflow: hidden;
-}
-#ul-nav {
-  max-width: 700px;
-  display: flex;
-  gap: 2rem; /* Gap mellan listobjekt */
-  justify-content: center;
-  flex-grow: 1;
-}
-ul > li {
-  list-style: none;
-}
-
-ul li a {
-  text-decoration: none;
-  color: var(--black);
-  font-size: 1.25vw;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-#profile-btn {
-    border-radius: 50%;
-    border: none;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#profile-btn img{
-    height: 48px;
-    width: 48px;
-}
-
-#login-btn {
-  padding: 0.9vw 1.5vw;
-  border-radius: 16px;
-  color: var(--white);
-  background-color: var(--green);
-  transition: background-color .2s ease-in-out;
-  border: none;
-  cursor: pointer;
-  font-size: 1vw;
-}
-
-#login-btn:hover {
-  background-color: var(--green-hover);
-}
+    --green: #21a35f;
+    --green-hover: #07944B;
+    --black: #000000;
+    --white: #fff;
+    }
 
 #hero {
     min-width: 100%;
@@ -220,120 +152,6 @@ ul li a {
     color: var(--white);
 }
 
-/* Profilcontainer */
-.profile-container {
-    position: relative;
-    display: inline-block;
-}
-
-/* Profilknapp */
-.profile-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-}
-
-/* Profilbild */
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: transform 0.2s ease-in-out;
-}
-
-.profile-button:hover .avatar {
-    transform: scale(1.1);
-}
-
-/* Dropdown-meny */
-.dropdown-menu {
-    z-index: 99;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    width: 200px;
-    overflow: hidden;
-    display: none;
-}
-
-/* Visa dropdown vid aktivering */
-.dropdown-menu.show {
-    display: block;
-}
-
-/* Dropdown-header */
-.dropdown-header {
-    padding: 10px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #ddd;
-}
-
-.user-name {
-    font-weight: bold;
-    color: #333;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.user-email {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 12px;
-    color: #777;
-}
-
-/* Dropdown-lista */
-.dropdown-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.dropdown-list li {
-    border-bottom: 1px solid #eee;
-}
-
-.dropdown-list a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
-}
-
-.dropdown-list a:hover {
-    background: #f1f1f1;
-}
-
-/* Sign-out knapp */
-.dropdown-footer {
-    padding: 10px;
-    text-align: center;
-}
-
-.dropdown-footer li {
-    list-style-type: none;
-}
-
-.sign-out {
-    padding: 10px;
-    display: block;
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-
-
-.sign-out:hover {
-    background: #ffe5e5;
-}
-
 /* POPULAR DISHES */
 
 .popular-inner-items {
@@ -341,8 +159,15 @@ ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 70vh;
 }
+
+@media screen and (max-width: 1280px) {
+    .popular-inner-items {
+        height: 80vh;
+    }
+}
+
 
 #arrow {
     width: 10%;
@@ -529,9 +354,8 @@ ul li a {
 }
 
 .location {
-    height: 100vh;
+    height: 120vh;
     width: 100%;
-    border: 1px solid red;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -554,20 +378,40 @@ ul li a {
     gap: 30px;
 }
 .card {
-    max-width: 300px;
-    max-height: 190px;
+    max-width: 450px;
+    max-height: 400px;
     background-color: white;
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Bildstil */
 .card-image {
     width: 100%;
-    height: 190px;
+    height: 400px;
+    object-fit: cover;
 }
 
+@media screen and (max-width: 1280px) {
+    .location {
+        height: 150vh;
+    }
+    .card {
+        max-width: 300px;
+        max-height: 300px;
+    }
+    .card-image {
+        width: 100%;
+        height: 300px;
+    }
+    .location-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+}
 .fig-card {
     position: relative;
 }
@@ -576,7 +420,6 @@ figcaption {
     bottom: 10px;
     display: flex;
     left: 10px;
-    padding: var(--bdsSpacingXs);
     position: absolute;
     right: 0;
     top: 0;
@@ -617,12 +460,17 @@ figcaption {
     font-size: 1.2rem;
 }
 /* CONTENT SECTION */
+/* CONTENT SECTION */
+/* CONTENT SECTION */
+
 .container-section {
     background-color: #ffffff;
     padding: 50px;
     max-width: 1200px;
     margin: auto;
 }
+
+
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -635,7 +483,7 @@ figcaption {
 }
 .text h2 {
     font-family: 'Montserrat';
-    font-size: 32px;
+    font-size: 3em;
     color: #222;
     transition: all .3s ease-in-out;
 }
@@ -648,8 +496,9 @@ figcaption {
 }
 .text p {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 16px;
+    margin-bottom: 1.3em;
     line-height: 1.6;
+    font-size: 1.2em;
 }
 
 
@@ -669,7 +518,6 @@ figcaption {
     position: absolute;
     height: 50px;
     width: 125px;
-    border: 1px solid red;
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
@@ -711,7 +559,6 @@ figcaption {
       var(--_g) calc(-1*var(--_d) - var(--x)) 0,
       var(--_g) 0 calc(-1*var(--_d) - var(--y));
     mask-repeat: no-repeat;
-    border: 1px solid red;
   
 }
 
@@ -774,10 +621,15 @@ figcaption {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1700px;
     margin: auto;
 }
 
+@media screen and (max-width: 1280px) {
+    .container {
+        max-width: 1200px;
+    }
+}
 .footer-top {
     display: flex;
     justify-content: space-between;
@@ -812,10 +664,11 @@ figcaption {
 }
 
 .link-group h2 {
-    font-size: 14px;
+    font-size: 1.5rem;
     font-weight: bold;
     text-transform: uppercase;
     margin-bottom: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .link-group ul {
@@ -831,6 +684,7 @@ figcaption {
     color: #555;
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 1.2em;
 }
 
 .link-group ul li a:hover {

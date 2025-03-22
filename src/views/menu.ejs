@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link href="/css/menu.css" rel="stylesheet"> 
+    <script src="/js/script.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <nav>
+          <img src="/img/logo.png" id="logo">
+          <ul id="ul-nav">
+            <li><a href="/">Hem</a></li>
+            <li><a href="/meny">Meny</a></li>
+            <li><a href="#">Beställ</a></li>
+            <li><a href="#">Om oss</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kundservice</a></li>
+          </ul>
+          <% if (user) { %>
+            <div class="profile-container">
+              <!-- Profilknapp -->
+              <button id="profile-btn" class="profile-button">
+                  <img class="avatar" src="/img/user-avatar.png" alt="User photo">
+              </button>
+      
+              <!-- Dropdown-meny -->
+              <div id="profile-dropdown" class="dropdown-menu hidden">
+                  <div class="dropdown-header">
+                      <p class="user-name"><%= user.username %></p>
+                      <p class="user-email"><%= user.email %></p>
+                  </div>
+                  <ul class="dropdown-list">
+                      <li><a href="#">Profil</a></li>
+                      <li><a href="#">Mina beställningar</a></li>
+                      <li><a href="#">Inställningar</a></li>
+                  </ul>
+                  <div class="dropdown-footer">
+                      <a href="/logout" class="sign-out">Sign out</a>
+                  </div>
+              </div>
+          </div>
+      
+          <% } else { %>
+            <a href="/login">
+              <button type="submit" id="login-btn">Logga in</button>
+            </a>
+          <% } %>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="grid">
+            <a href="#" class="product">
+                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg" alt="Earthen Bottle">
+                <h3>Earthen Bottle</h3>
+                <p>$48</p>
+            </a>
+            <a href="#" class="product">
+                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg" alt="Nomad Tumbler">
+                <h3>Nomad Tumbler</h3>
+                <p>$35</p>
+            </a>
+            <a href="#" class="product">
+                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg" alt="Focus Paper Refill">
+                <h3>Focus Paper Refill</h3>
+                <p>$89</p>
+            </a>
+            <a href="#" class="product">
+                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg" alt="Machined Mechanical Pencil">
+                <h3>Machined Mechanical Pencil</h3>
+                <p>$35</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

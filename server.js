@@ -7,6 +7,7 @@ import passport from 'passport'
 import configurePassport from './src/strategies/local-strategy.js'
 import UserModel  from './src/schema/userSchema.js'
 import connectMongoDBSession  from 'connect-mongodb-session'
+import menuRoutes from './src/routes/menuRoutes.js'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
@@ -61,7 +62,7 @@ async function connectDB() {
     }
 }
 
-
+app.use(menuRoutes)
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {user: req.user})
