@@ -8,6 +8,7 @@
 --white: #fff;
 --select-color: #ebedec;
 --select-color-active: #21a35f;
+--star-color: #F3AC50;
 }
 
 
@@ -18,9 +19,8 @@
 }
 
 .container {
-    border: 1px solid red;
     max-width: 100%;
-    height: 85vh;
+    height: 100vh;
 }
 
 .main-container {
@@ -40,7 +40,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
     align-items: center;
@@ -152,6 +152,7 @@
 
 /* Gallery grid layout */
 .gallery-grid {
+    
     width: 100%;
     height: 100%;
     display: grid;
@@ -165,20 +166,82 @@
     }
 }
 .gallery-item {
+    border: 1px solid red;
     width: 400px;
-    height: 300px;
-    overflow: hidden;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    
 }
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item h1 {
+    font-family: 'Montserrat';
+    padding: 10px;
+    
+}
+.gallery-item #description {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid red;
+}
+
+
+
+.stars i{
+color: var(--star-color)
+}
+
+.stars {
+    padding: 10px;
+}
+
 
 .gallery-item img {
     width: 100%;
-    height: 1090px;
+    height: 150px;
+    object-fit: cover;
     border-radius: 0.5rem;
     transition: transform 0.3s ease;
     display: block;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.03);
+.gallery-properties {
+    border: 1px solid red;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Centrera elementen vertikalt */
+    justify-content: space-between; /* Fördela elementen horisontellt */
+}
+
+
+.gallery-properties h3 {
+    font-size: 1.5em;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#add-button {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#add-icon {
+    fill: var(--green);
+    transition: all .3s ease-in-out;
+}
+
+#add-icon:hover {
+    transform: scale(1.1, 1.1);
+    fill: var(--green-hover);
 }
 

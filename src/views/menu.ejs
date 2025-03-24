@@ -7,6 +7,8 @@
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/menu.css" rel="stylesheet"> 
     <script src="/js/script.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
@@ -16,7 +18,7 @@
           <ul id="ul-nav">
             <li><a href="/">Hem</a></li>
             <li><a href="/meny">Meny</a></li>
-            <li><a href="#">Beställ</a></li>
+            <li><a href="/">Beställ</a></li>
             <li><a href="#">Om oss</a></li>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Kundservice</a></li>
@@ -90,6 +92,26 @@
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="Product image">
+                    <h1>Maträtt</h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description">God maträtt</p>
+                    <div class="gallery-properties">
+                        <h3>102kr</h3>
+                        <button type="button" id="add-button" onclick="addToCart('Mat', 102)">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Product image">
@@ -109,22 +131,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Simple script to handle button active states
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
