@@ -503,34 +503,54 @@ figcaption {
 
 
 .images {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 500px;
-    gap: 10px;
+    display: flex;
+    flex: 0;
+
     position: relative;
 }
 
+
 .image-btn {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
+    align-items: flex-end;
+    background-color: transparent;
+    z-index: 9999;
+}
+
+
+
+
+
+.image-btn a {
+    border: none;
     position: absolute;
-    height: 50px;
-    width: 125px;
+    padding: 16px 40px;
     bottom: 0;
     left: 50%;
     transform: translate(-50%);
     border-radius: 20px;
-    font-size: 1.2em;
-    border-radius: 8px;
+    font-size: 1em;
+    border-radius: 12px;
     border: none;
     background-color: var(--green);
     color: var(--white);
     font-family: 'Montserrat';
     cursor: pointer;
     text-decoration: none;
-    z-index: 9999;
+    transition: all .3s ease-in-out;
+}
+
+.image-btn:hover a {
+    transform: scale(1.05, 1.05);
+    padding:30px 212px;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    font-size: 1.5em;
 }
 
 .image {
@@ -564,7 +584,9 @@ figcaption {
 
 
 
-.image:nth-of-type(2) {
+
+
+.image:nth-of-type(3) {
     --r: 20px; /* the radius */
     --s: 30px; /* size of inner curve */
     --x: 20px; /* horizontal offset (no percentage) */

@@ -6,40 +6,179 @@
 --green-hover: #07944B;
 --black: #000000;
 --white: #fff;
+--select-color: #ebedec;
+--select-color-active: #21a35f;
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    border: 1px solid red;
+    max-width: 100%;
+    height: 85vh;
 }
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+
+.main-container {
+    display: flex;
+    height: 88vh;
 }
-.product {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+
+/* Select buttons styles */
+/* Select buttons styles */
+/* Select buttons styles */
+/* Select buttons styles */
+/* Select buttons styles */
+
+.select-container {
+    border: 1px solid red;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    height: 100%;
+}
+
+.select-btn {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    width: 250px;
+    border-radius: 9999px;
+}
+
+.select-btn {
+    color: var(--black);
+    background-color: var(--select-color);
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.select-btn img {
+    margin-right: 20px;
+    width: 64px;
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+}
+
+.select-btn:hover {
+    border-color: #e5e7eb;
+}
+
+.select-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
+}
+
+/* Active button (All categories) */
+.select-btn.active {
+    color: var(--white);
+    background-color: var(--select-color-active);
+}
+
+.select-btn.active:hover {
+    color: #fff;
+    background-color: var(--green-hover);
+}
+
+
+
+/* Filter buttons styles */
+/* Filter buttons styles */
+/* Filter buttons styles */
+/* Filter buttons styles */
+
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    height: 10vh;
+}
+
+.filter-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     text-align: center;
 }
-.product img {
+
+/* Light mode button styles */
+.filter-btn {
+    color: #4b5563;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+.filter-btn:hover {
+    border-color: #e5e7eb;
+}
+
+.filter-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
+}
+
+/* Active button (All categories) */
+.filter-btn.active {
+    color: #1d4ed8;
+    border-color: #2563eb;
+    background-color: #fff;
+}
+
+.filter-btn.active:hover {
+    color: #fff;
+    background-color: #2563eb;
+}
+
+/* Gallery grid layout */
+.gallery-grid {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: opacity 0.3s;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
 }
-.product:hover img {
-    opacity: 0.75;
+
+/* Responsive grid - 3 columns on medium screens and up */
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
-.product h3 {
-    margin: 10px 0 5px;
-    font-size: 14px;
-    color: #444;
+.gallery-item {
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
 }
-.product p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #222;
+
+.gallery-item img {
+    width: 100%;
+    height: 1090px;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    display: block;
 }
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+

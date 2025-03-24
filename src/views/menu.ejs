@@ -53,28 +53,78 @@
         </nav>
     </header>
     <div class="container">
-        <div class="grid">
-            <a href="#" class="product">
-                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg" alt="Earthen Bottle">
-                <h3>Earthen Bottle</h3>
-                <p>$48</p>
-            </a>
-            <a href="#" class="product">
-                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg" alt="Nomad Tumbler">
-                <h3>Nomad Tumbler</h3>
-                <p>$35</p>
-            </a>
-            <a href="#" class="product">
-                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg" alt="Focus Paper Refill">
-                <h3>Focus Paper Refill</h3>
-                <p>$89</p>
-            </a>
-            <a href="#" class="product">
-                <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg" alt="Machined Mechanical Pencil">
-                <h3>Machined Mechanical Pencil</h3>
-                <p>$35</p>
-            </a>
+        <!-- Category Filter Buttons -->
+        <div class="top-container">
+            <div class="filter-container">
+                <button type="button" class="filter-btn active">All categories</button>
+                <button type="button" class="filter-btn">Shoes</button>
+                <button type="button" class="filter-btn">Bags</button>
+                <button type="button" class="filter-btn">Electronics</button>
+                <button type="button" class="filter-btn">Gaming</button>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="select-container">
+                <button type="button" class="select-btn active">
+                    <img src="/img/food-icon.png">
+                    Vegetariskt
+                </button>
+                <button type="button" class="select-btn">
+                    <img src="/img/food-icon.png">
+                    Gatumat
+                </button>
+                <button type="button" class="select-btn">
+                    <img src="/img/food-icon.png">
+                    Husmanskost 
+                </button>
+                <button type="button" class="select-btn">
+                    <img src="/img/food-icon.png">
+                    Asiatisk 
+                </button>
+                <button type="button" class="select-btn">
+                    <img src="/img/food-icon.png">
+                    Skaldjur
+                </button>
+            </div>
+            <!-- Image Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="Product image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Product image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="Product image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="Product image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="Product image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="Product image">
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Simple script to handle button active states
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
