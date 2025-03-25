@@ -25,10 +25,6 @@ async function addToCart() {
 
 addToCart()
 
-function viewCart() {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    console.log("Din kundkorg:", cart);
-}
 
 
 // let cart = JSON.parse(localStorage.getItem("cart")) || [];

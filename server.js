@@ -19,6 +19,11 @@ const store = new MongoDBStore({
     collection: 'sessions'
 })
 
+const cartStore = new MongoDBStore({
+    uri: 'mongodb://127.0.0.1:27017/Kundhemsida',
+    collection: 'carts'
+})
+
 
 const app = express()
 app.use(express.json())
@@ -26,6 +31,7 @@ app.set('view-engine', 'ejs')
 app.set('views', './src/views')
 app.use(express.static('./src/public'))
 app.use(express.urlencoded({extended: false})) 
+
 app.use(
     session({
         secret: 'secret',
@@ -33,26 +39,15 @@ app.use(
         resave: false,
         store: store,
         cookie: {
-            maxAge: 60000 * 60
+            maxAge: 60000 * 60,
+            name: 'user-session'
         }
     })
 )
-
-
-app.use(session({
-    secret: "cart",   // Byt ut detta mot en säker sträng
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 60000 * 60
-    }// Sätt till true om du använder HTTPS
-}));
-
-
-
-
 app.use(passport.initialize())
 app.use(passport.session())
+
+
 
 app.use((req, res, next) => {
     console.log(`PATH: ${req.path}`)
@@ -60,6 +55,7 @@ app.use((req, res, next) => {
     console.log(`REQ SESSION: ${JSON.stringify(req.session)}`)
     console.log(`AUTHENTICATED: ${req.isAuthenticated()}`)
     console.log(`REQ USER: ${req.user ? req.user: 'Nothing'}`)
+    console.log(req.session.productId || 'Odefinerad')
     console.log(`_______________________________`)
     next()
 })

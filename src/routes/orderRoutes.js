@@ -9,7 +9,7 @@ orderRoute.get('/orders', async (req, res) => {
     try {
         const product = await Product.findById(productId)
         console.log(product)
-        return res.render('order.ejs', {user: req.user, product})
+        return res.render('order.ejs', {user: req.user})
     } catch (error) {
         return res.status(500).json({message: 'Fel vid inhämtning av data!'})
     }
@@ -17,10 +17,11 @@ orderRoute.get('/orders', async (req, res) => {
 })
 
 orderRoute.post('/orders', async (req, res) => {
-    const productId = req.body.productId
+    const productId = req.session.productId
+
     try {
         const product = await Product.findById(productId)
-        console.log(product)
+        return res.json({productId})
     } catch (error) {
         return res.status(500).json({message: 'Fel vid inhämtning av data!'})
     }
