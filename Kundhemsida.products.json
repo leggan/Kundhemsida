@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "67e2e6cf05486fb44593b9f4"
+  },
+  "name": "Pizza",
+  "price": "126",
+  "description": "God pizza",
+  "source": "/img/pizza.jpg"
+},
+{
+  "_id": {
+    "$oid": "67e2f41a05486fb44593b9fb"
+  },
+  "name": "Kebabrulle",
+  "price": "120",
+  "description": "Såsig kebbabrulle",
+  "source": "/img/kebabrulle.jpg"
+},
+{
+  "_id": {
+    "$oid": "67e2f7e105486fb44593b9fd"
+  },
+  "name": "Vegitarisk pasta",
+  "price": "160",
+  "description": "Vegitarisk pasta med ost",
+  "source": "/img/pasta_veg.jpeg"
+},
+{
+  "_id": {
+    "$oid": "67e2f8b605486fb44593b9ff"
+  },
+  "name": "Köttbullar",
+  "price": "50",
+  "description": "Krispiga köttbullar",
+  "source": "/img/kottbullar.jpg"
+},
+{
+  "_id": {
+    "$oid": "67e2f90b05486fb44593ba00"
+  },
+  "name": "Räkwok",
+  "price": "200",
+  "description": "Räkwok med ris",
+  "source": "/img/rakwok.jpeg"
+},
+{
+  "_id": {
+    "$oid": "67e2fa8c05486fb44593ba01"
+  },
+  "name": "Krabba",
+  "price": "305",
+  "description": "Krabba med sås",
+  "source": "/img/krabba.jpg"
+}]

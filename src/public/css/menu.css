@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* VARIABLER  */
 :root {
 --green: #21a35f;
 --green-hover: #07944B;
@@ -95,60 +95,16 @@
 }
 
 
-
-/* Filter buttons styles */
-/* Filter buttons styles */
-/* Filter buttons styles */
-/* Filter buttons styles */
-
-
-.filter-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 0;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+.top-container {
     height: 10vh;
 }
 
-.filter-btn {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.625rem 1.25rem;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-align: center;
-}
+/* Filter buttons styles */
+/* Filter buttons styles */
+/* Filter buttons styles */
+/* Filter buttons styles */
 
-/* Light mode button styles */
-.filter-btn {
-    color: #4b5563;
-    background-color: #fff;
-    border: 1px solid #fff;
-}
 
-.filter-btn:hover {
-    border-color: #e5e7eb;
-}
-
-.filter-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5);
-}
-
-/* Active button (All categories) */
-.filter-btn.active {
-    color: #1d4ed8;
-    border-color: #2563eb;
-    background-color: #fff;
-}
-
-.filter-btn.active:hover {
-    color: #fff;
-    background-color: #2563eb;
-}
 
 /* Gallery grid layout */
 .gallery-grid {
@@ -213,8 +169,8 @@ color: var(--star-color)
     border: 1px solid red;
     padding: 10px;
     display: flex;
-    align-items: center; /* Centrera elementen vertikalt */
-    justify-content: space-between; /* Fördela elementen horisontellt */
+    align-items: center; 
+    justify-content: space-between; 
 }
 
 

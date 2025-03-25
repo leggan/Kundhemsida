@@ -7,7 +7,8 @@
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/menu.css" rel="stylesheet"> 
     <script src="/js/script.js" defer></script>
-    <script src="/js/cart.js" defer></script>
+    <script src="/js/products.js"></script>
+    <script src="/js/cart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -38,7 +39,7 @@
                   </div>
                   <ul class="dropdown-list">
                       <li><a href="#">Profil</a></li>
-                      <li><a href="#">Mina beställningar</a></li>
+                      <li><a href="/orders">Mina beställningar</a></li>
                       <li><a href="#">Inställningar</a></li>
                   </ul>
                   <div class="dropdown-footer">
@@ -57,42 +58,34 @@
     <div class="container">
         <!-- Category Filter Buttons -->
         <div class="top-container">
-            <div class="filter-container">
-                <button type="button" class="filter-btn active">All categories</button>
-                <button type="button" class="filter-btn">Shoes</button>
-                <button type="button" class="filter-btn">Bags</button>
-                <button type="button" class="filter-btn">Electronics</button>
-                <button type="button" class="filter-btn">Gaming</button>
-            </div>
+
         </div>
         <div class="main-container">
             <div class="select-container">
-                <button type="button" class="select-btn active">
-                    <img src="/img/food-icon.png">
-                    Vegetariskt
+                <button type="button" class="select-btn active" data-category="Alla">
+                    <img src="/img/food-icon.png"> Alla
                 </button>
-                <button type="button" class="select-btn">
-                    <img src="/img/food-icon.png">
-                    Gatumat
+                <button type="button" class="select-btn" data-category="Vegetariskt">
+                    <img src="/img/food-icon.png"> Vegetariskt
                 </button>
-                <button type="button" class="select-btn">
-                    <img src="/img/food-icon.png">
-                    Husmanskost 
+                <button type="button" class="select-btn" data-category="Gatumat">
+                    <img src="/img/food-icon.png"> Gatumat
                 </button>
-                <button type="button" class="select-btn">
-                    <img src="/img/food-icon.png">
-                    Asiatisk 
+                <button type="button" class="select-btn" data-category="Husmanskost">
+                    <img src="/img/food-icon.png"> Husmanskost
                 </button>
-                <button type="button" class="select-btn">
-                    <img src="/img/food-icon.png">
-                    Skaldjur
+                <button type="button" class="select-btn" data-category="Asiatiskt">
+                    <img src="/img/food-icon.png"> Asiatiskt
+                </button>
+                <button type="button" class="select-btn" data-category="Skaldjur">
+                    <img src="/img/food-icon.png"> Skaldjur
                 </button>
             </div>
             <!-- Image Gallery Grid -->
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="Product image">
-                    <h1>Maträtt</h1>
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
                     <div class="stars">
                         <i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i>
@@ -100,10 +93,10 @@
                         <i class="fa-sharp fa-solid fa-star"></i>
                         <i class="fa-sharp fa-solid fa-star"></i>
                     </div>
-                    <p id="description">God maträtt</p>
+                    <p id="description"></p>
                     <div class="gallery-properties">
-                        <h3>102kr</h3>
-                        <button type="button" id="add-button" onclick="addToCart('Mat', 102)">
+                        <h3 id="product-price">102kr</h3>
+                        <button type="button" id="add-button">
                             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
                                 <!-- Fylld grön cirkel -->
                                 <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
@@ -114,19 +107,119 @@
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="Product image">
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description"></p>
+                    <div class="gallery-properties">
+                        <h3 id="product-price"></h3>
+                        <button type="button" id="add-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="Product image">
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description"></p>
+                    <div class="gallery-properties">
+                        <h3 id="product-price"></h3>
+                        <button type="button" id="add-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="Product image">
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description"></p>
+                    <div class="gallery-properties">
+                        <h3 id="product-price"></h3>
+                        <button type="button" id="add-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="Product image">
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description"></p>
+                    <div class="gallery-properties">
+                        <h3 id="product-price"></h3>
+                        <button type="button" id="add-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="Product image">
+                    <img src="" alt="Product image" id="product-image">
+                    <h1 id="product-title"></h1>
+                    <div class="stars">
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                        <i class="fa-sharp fa-solid fa-star"></i>
+                    </div>
+                    <p id="description"></p>
+                    <div class="gallery-properties">
+                        <h3 id="product-price"></h3>
+                        <button type="button" id="add-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
+                                <!-- Fylld grön cirkel -->
+                                <circle cx="480" cy="-480" r="400" fill="#21a35f"/>
+                                <!-- Vitt plustecken -->
+                                <path fill="#ffffff" d="M440-280h80v-160h160v-80H520v-160h-80v160H280v80h160v160Z"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -3,40 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beställningar</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <title>Varukorg</title>
+    <link href="/css/navbar.css" rel="stylesheet">
+    <link href="/css/orders.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <script src="/js/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
-    <h1>Beställningar</h1>
-    
-    <table id="orders-table">
-        <thead>
-            <tr>
-                <th>Kundnamn</th>
-                <th>Produkter</th>
-                <th>Pris</th>
-                <th>Status</th>
-                <th>Datum</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Beställningar kommer att läggas till här -->
-        </tbody>
-    </table>
+    <header>
+        <nav>
+          <img src="/img/logo.png" id="logo">
+          <ul id="ul-nav">
+            <li><a href="/">Hem</a></li>
+            <li><a href="/meny">Meny</a></li>
+            <li><a href="/">Beställ</a></li>
+            <li><a href="#">Om oss</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kundservice</a></li>
+          </ul>
+          <% if (user) { %>
+            <div class="profile-container">
+              <!-- Profilknapp -->
+              <button id="profile-btn" class="profile-button">
+                  <img class="avatar" src="/img/user-avatar.png" alt="User photo">
+              </button>
+      
+              <!-- Dropdown-meny -->
+              <div id="profile-dropdown" class="dropdown-menu hidden">
+                  <div class="dropdown-header">
+                      <p class="user-name"><%= user.username %></p>
+                      <p class="user-email"><%= user.email %></p>
+                  </div>
+                  <ul class="dropdown-list">
+                      <li><a href="#">Profil</a></li>
+                      <li><a href="/orders">Mina beställningar</a></li>
+                      <li><a href="#">Inställningar</a></li>
+                  </ul>
+                  <div class="dropdown-footer">
+                      <a href="/logout" class="sign-out">Sign out</a>
+                  </div>
+              </div>
+          </div>
+      
+          <% } else { %>
+            <a href="/login">
+              <button type="submit" id="login-btn">Logga in</button>
+            </a>
+          <% } %>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="hero">
+          <img src="/img/illustration-hero.svg" alt="illustration of a light purple wave">
+        </div>
+        <div class="container-text">
+          <h2 class="title">Order Summary</h2>
+          <p class="subtitle">You can now listen to millions of songs, audiobooks, and podcasts on any 
+          device anywhere you like!</p>
+          <div class="plan-box">
+            <div class="plan-box-left">
+              <img src="/img/icon-music.svg" alt="icon of a music symbol">
+              <div>
+                <h5>Annual Plan</h5>
+                <p>$59.99/year</p>
+              </div>
+            </div>
+            <a href="#">Change</a>
+          </div>
 
-
+          
+          <a href="#" class="proceed-btn">Fortsätt</a>
+          <a href="#" class="cancel-btn">Cancel Order</a>
+        </div>
+      </div>
 </body>
 </html>

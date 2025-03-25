@@ -8,6 +8,7 @@ import configurePassport from './src/strategies/local-strategy.js'
 import UserModel  from './src/schema/userSchema.js'
 import connectMongoDBSession  from 'connect-mongodb-session'
 import menuRoute from './src/routes/menuRoutes.js'
+import orderRoute from './src/routes/orderRoutes.js'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
@@ -38,6 +39,18 @@ app.use(
 )
 
 
+app.use(session({
+    secret: "cart",   // Byt ut detta mot en säker sträng
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 60000 * 60
+    }// Sätt till true om du använder HTTPS
+}));
+
+
+
+
 app.use(passport.initialize())
 app.use(passport.session())
 
@@ -63,6 +76,7 @@ async function connectDB() {
 }
 
 app.use(menuRoute)
+app.use(orderRoute)
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {user: req.user})
