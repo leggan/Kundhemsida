@@ -6,18 +6,22 @@ async function addToCart() {
         const chosenProduct = addBtn.parentNode.parentNode.childNodes[3].textContent
         addBtn.addEventListener('click', async (e) => {
             if(chosenProduct === products[index].name) {
-                const productId = products[index]._id
-                // BACKEND MÅSTE FORTFARANDE SVARA MED POST FÖR ATT TA EMOT FÖRFRÅGAN
-                const response2 = await fetch('/api/orders', {
-                    method: 'POST',
-                    credentials: 'include',
-                    headers: {
-                        'Content-Type' : 'application/json'
-                    },
-                    body: JSON.stringify({productId})
-                })
-                const data = await response2.json()
-                console.log(data)
+                try {
+                    const productId = products[index]._id
+                    // BACKEND MÅSTE FORTFARANDE SVARA MED POST FÖR ATT TA EMOT FÖRFRÅGAN
+                    const response2 = await fetch('/api/orders', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type' : 'application/json'
+                        },
+                        body: JSON.stringify({productId})
+                    })
+                    const data = await response2.json()
+
+                } catch (error) {
+                    console.log('Error')
+                }
             }
         })
     })

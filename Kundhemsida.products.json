@@ -5,7 +5,8 @@
   "name": "Pizza",
   "price": "126",
   "description": "God pizza",
-  "source": "/img/pizza.jpg"
+  "source": "/img/pizza.jpg",
+  "category" : "Gatumat Alla"
 },
 {
   "_id": {
@@ -14,7 +15,9 @@
   "name": "Kebabrulle",
   "price": "120",
   "description": "Såsig kebbabrulle",
-  "source": "/img/kebabrulle.jpg"
+  "source": "/img/kebabrulle.jpg",
+  "category" : "Gatumat Alla"
+  
 },
 {
   "_id": {
@@ -23,7 +26,8 @@
   "name": "Vegitarisk pasta",
   "price": "160",
   "description": "Vegitarisk pasta med ost",
-  "source": "/img/pasta_veg.jpeg"
+  "source": "/img/pasta_veg.jpeg",
+  "category" : "Vegetariskt Alla"
 },
 {
   "_id": {
@@ -32,7 +36,8 @@
   "name": "Köttbullar",
   "price": "50",
   "description": "Krispiga köttbullar",
-  "source": "/img/kottbullar.jpg"
+  "source": "/img/kottbullar.jpg",
+  "category" : "Husmanskost Alla"
 },
 {
   "_id": {
@@ -41,7 +46,8 @@
   "name": "Räkwok",
   "price": "200",
   "description": "Räkwok med ris",
-  "source": "/img/rakwok.jpeg"
+  "source": "/img/rakwok.jpeg",
+  "category" : "Asiatiskt Alla"
 },
 {
   "_id": {
@@ -50,5 +56,6 @@
   "name": "Krabba",
   "price": "305",
   "description": "Krabba med sås",
-  "source": "/img/krabba.jpg"
+  "source": "/img/krabba.jpg",
+  "category" : "Skaldjur Alla"
 }]

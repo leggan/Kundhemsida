@@ -21,4 +21,22 @@ productsRoute.get('/api/getProduct', async (req, res) => {
         return res.json({message: 'Fel vid hämtning av produkter'})
     }
 })
+
+productsRoute.post('/api/removeProduct', async (req, res) => {
+    try {
+        console.log(req.body)
+        const index = req.body.targetIndex
+        const removedProductId = req.body.productId
+        if(req.session) {
+            const products = req.session.products;
+            console.log('Session')
+            if(removedProductId === products[index].productId) {
+                products.splice(index, index+1)
+            }
+        }
+    } catch (error) {
+        return res.status(500).json(error)
+    }
+})
 export default productsRoute
+

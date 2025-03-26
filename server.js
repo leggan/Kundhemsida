@@ -17,12 +17,12 @@ const MongoDBStore = connectMongoDBSession(session)
 configurePassport()
 
 const store = new MongoDBStore({
-    uri: 'mongodb://127.0.0.1:27017/Kundhemsida',
+    uri: 'mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida',
     collection: 'sessions'
 })
 
 const cartStore = new MongoDBStore({
-    uri: 'mongodb://127.0.0.1:27017/Kundhemsida',
+    uri: 'mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida',
     collection: 'carts'
 })
 
@@ -71,7 +71,7 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/Kundhemsida')
+        await mongoose.connect('mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida')
         console.log('MongoDB: Running')
     }
     catch(e) {
