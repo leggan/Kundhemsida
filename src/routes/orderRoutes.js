@@ -7,10 +7,7 @@ const orderRoute = express.Router()
 
 orderRoute.get('/orders', async (req, res) => {
     try {
-        req.session.productId = productId
-        const product = await Product.findById(req.session.productId)
-        console.log(product)
-        return res.render('order.ejs', {user: req.user, productId})
+        return res.render('order.ejs', {user: req.user})
     } catch (error) {
         return res.status(500).json({message: 'Fel vid inhämtning av data!'})
     }
@@ -18,8 +15,13 @@ orderRoute.get('/orders', async (req, res) => {
 })
 
 orderRoute.get('/api/orders', async (req, res) => {
-    res.status(404).json({message: 'api orders'})
-    console.log(req.headers)
+    if(req.session.products) {
+        const userProducts = req.session.products
+        console.log(userProducts)
+        return res.status(200).json(userProducts)
+    } {
+        return res.status(404).send({message: 'Fel vid inhämtning av data!'})
+    }
 })
 
 orderRoute.post('/api/orders', (req, res) => {

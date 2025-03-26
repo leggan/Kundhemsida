@@ -10,6 +10,7 @@ import connectMongoDBSession  from 'connect-mongodb-session'
 import menuRoute from './src/routes/menuRoutes.js'
 import orderRoute from './src/routes/orderRoutes.js'
 import cors from 'cors'
+import productsRoute from './src/routes/productsRoute.js'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
@@ -48,6 +49,12 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use((req, res, next) => {
+    if(!req.session.products) {
+        req.session.products = []
+    }
+    next()
+})
 
 
 app.use((req, res, next) => {
@@ -74,6 +81,7 @@ async function connectDB() {
 
 app.use(menuRoute)
 app.use(orderRoute)
+app.use(productsRoute)
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {user: req.user})
