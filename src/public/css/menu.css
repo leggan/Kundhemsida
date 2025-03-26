@@ -45,7 +45,9 @@
     margin-bottom: 1.5rem;
     align-items: center;
     height: 100%;
+    height: fit-content;
 }
+
 
 .select-btn {
     font-size: 1.3rem;
@@ -116,9 +118,10 @@
 }
 
 /* Responsive grid - 3 columns on medium screens and up */
-@media (min-width: 768px) {
+@media (max-width: 1280px) {
     .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 .gallery-item {

@@ -9,6 +9,7 @@ import UserModel  from './src/schema/userSchema.js'
 import connectMongoDBSession  from 'connect-mongodb-session'
 import menuRoute from './src/routes/menuRoutes.js'
 import orderRoute from './src/routes/orderRoutes.js'
+import cors from 'cors'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
@@ -27,6 +28,7 @@ const cartStore = new MongoDBStore({
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.set('view-engine', 'ejs')
 app.set('views', './src/views')
 app.use(express.static('./src/public'))
@@ -39,8 +41,7 @@ app.use(
         resave: false,
         store: store,
         cookie: {
-            maxAge: 60000 * 60,
-            name: 'user-session'
+            maxAge: 60000 * 60
         }
     })
 )

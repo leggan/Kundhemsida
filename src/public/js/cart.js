@@ -7,16 +7,17 @@ async function addToCart() {
         addBtn.addEventListener('click', async (e) => {
             if(chosenProduct === products[index].name) {
                 const productId = products[index]._id
-                console.log(productId)
-                const response2 = await fetch('/orders', {
+                // BACKEND MÅSTE FORTFARANDE SVARA MED POST FÖR ATT TA EMOT FÖRFRÅGAN
+                const response2 = await fetch('/api/orders', {
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Content-Type' : 'application/json'
                     },
                     body: JSON.stringify({productId})
                 })
                 const data = await response2.json()
-
+                console.log(data)
             }
         })
     })
