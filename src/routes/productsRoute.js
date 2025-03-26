@@ -31,7 +31,9 @@ productsRoute.post('/api/removeProduct', async (req, res) => {
             const products = req.session.products;
             console.log('Session')
             if(removedProductId === products[index].productId) {
-                products.splice(index, index+1)
+                products.splice(index, 1)
+                req.session.products = products 
+                req.session.save()
             }
         }
     } catch (error) {

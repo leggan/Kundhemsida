@@ -19,10 +19,6 @@
           <ul id="ul-nav">
             <li><a href="/">Hem</a></li>
             <li><a href="/meny">Meny</a></li>
-            <li><a href="/">Beställ</a></li>
-            <li><a href="#">Om oss</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Kundservice</a></li>
           </ul>
           <% if (user) { %>
             <div class="profile-container">
@@ -38,9 +34,8 @@
                       <p class="user-email"><%= user.email %></p>
                   </div>
                   <ul class="dropdown-list">
-                      <li><a href="#">Profil</a></li>
+                      <li><a href="/profile">Profil</a></li>
                       <li><a href="/orders">Mina beställningar</a></li>
-                      <li><a href="#">Inställningar</a></li>
                   </ul>
                   <div class="dropdown-footer">
                       <a href="/logout" class="sign-out">Sign out</a>
@@ -54,7 +49,7 @@
             </a>
           <% } %>
         </nav>
-    </header>
+      </header>
     <div class="container">
         <!-- Category Filter Buttons -->
         <div class="top-container">

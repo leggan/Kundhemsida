@@ -17,46 +17,41 @@
 <body>
     <div id="popup-message" class="hidden">Produkten har lagts till!</div>
     <header>
-        <nav>
-          <img src="/img/logo.png" id="logo">
-          <ul id="ul-nav">
-            <li><a href="/">Hem</a></li>
-            <li><a href="/meny">Meny</a></li>
-            <li><a href="/">Beställ</a></li>
-            <li><a href="#">Om oss</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Kundservice</a></li>
-          </ul>
-          <% if (user) { %>
-            <div class="profile-container">
-              <!-- Profilknapp -->
-              <button id="profile-btn" class="profile-button">
-                  <img class="avatar" src="/img/user-avatar.png" alt="User photo">
-              </button>
-      
-              <!-- Dropdown-meny -->
-              <div id="profile-dropdown" class="dropdown-menu hidden">
-                  <div class="dropdown-header">
-                      <p class="user-name"><%= user.username %></p>
-                      <p class="user-email"><%= user.email %></p>
-                  </div>
-                  <ul class="dropdown-list">
-                      <li><a href="#">Profil</a></li>
-                      <li><a href="/orders">Mina beställningar</a></li>
-                      <li><a href="#">Inställningar</a></li>
-                  </ul>
-                  <div class="dropdown-footer">
-                      <a href="/logout" class="sign-out">Sign out</a>
-                  </div>
-              </div>
-          </div>
-      
-          <% } else { %>
-            <a href="/login">
-              <button type="submit" id="login-btn">Logga in</button>
-            </a>
-          <% } %>
-        </nav>
+      <nav>
+        <img src="/img/logo.png" id="logo">
+        <ul id="ul-nav">
+          <li><a href="/">Hem</a></li>
+          <li><a href="/meny">Meny</a></li>
+        </ul>
+        <% if (user) { %>
+          <div class="profile-container">
+            <!-- Profilknapp -->
+            <button id="profile-btn" class="profile-button">
+                <img class="avatar" src="/img/user-avatar.png" alt="User photo">
+            </button>
+    
+            <!-- Dropdown-meny -->
+            <div id="profile-dropdown" class="dropdown-menu hidden">
+                <div class="dropdown-header">
+                    <p class="user-name"><%= user.username %></p>
+                    <p class="user-email"><%= user.email %></p>
+                </div>
+                <ul class="dropdown-list">
+                    <li><a href="/profile">Profil</a></li>
+                    <li><a href="/orders">Mina beställningar</a></li>
+                </ul>
+                <div class="dropdown-footer">
+                    <a href="/logout" class="sign-out">Sign out</a>
+                </div>
+            </div>
+        </div>
+    
+        <% } else { %>
+          <a href="/login">
+            <button type="submit" id="login-btn">Logga in</button>
+          </a>
+        <% } %>
+      </nav>
     </header>
     <div class="container">
         <div class="hero">

@@ -1,130 +1,60 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile Page</title>
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Flowbite CSS -->
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.3/dist/flowbite.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Page</title>
+    <link href="/css/profile.css" rel="stylesheet">
 </head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <a href="/" class="back-link">Tillbaka</a>
+            
+            <div class="profile-header">
+                <h2 class="username"><%= user.username %></h2>
+                <p class="email"><%= user.email %></p>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="info-grid">
+                <div class="info-section">
+                    <h3 class="info-title">Kontoinformation</h3>
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">Användarnamn:</span>
+                            <span class="info-value"><%= user.username %></span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Användare skapad:</span>
+                            <span class="info-value"><%= formattedDate %></span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Senast inloggad:</span>
+                            <span class="info-value">Ej tillgängligt</span>
+                        </li>
+                    </ul>
+                </div>
 
-<body class="bg-gray-100">
-  <!-- Container -->
-  <div class="container mx-auto py-8">
-    <!-- Profile Card -->
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-      <div class="flex items-center space-x-6">
-        <!-- Profile Image -->
-        <img class="w-24 h-24 rounded-full" src="https://via.placeholder.com/150" alt="User Profile Picture">
-
-        <div>
-          <h2 class="text-2xl font-semibold text-gray-800">
-            <%= user.username %>
-          </h2>
-          <p class="text-lg text-gray-500">john.doe@example.com</p>
+                <div class="info-section">
+                    <h3 class="info-title">Settings</h3>
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-label">Integritet:</span>
+                            <span class="info-value">Ej tillgängligt</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Notifikationer:</span>
+                            <span class="info-value">Ej tillgängligt</span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-label">Språk:</span>
+                            <span class="info-value">Ej tillgängligt</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <hr class="my-6">
-      
-      <!-- User Information -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div>
-          <h3 class="text-xl font-medium text-gray-700">Account Details</h3>
-          <ul class="mt-4 space-y-4">
-            <li class="flex justify-between text-gray-600">
-              <span>Username:</span>
-              <span class="font-semibold"><%= user.username %></span>
-            </li>
-            <li class="flex justify-between text-gray-600">
-              <span>Member Since:</span>
-              <span class="font-semibold">March 2021</span>
-            </li>
-            <li class="flex justify-between text-gray-600">
-              <span>Last Login:</span>
-              <span class="font-semibold">March 13, 2025</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-medium text-gray-700">Settings</h3>
-          <ul class="mt-4 space-y-4">
-            <li class="flex justify-between text-gray-600">
-              <span>Privacy:</span>
-              <span class="font-semibold">Public</span>
-            </li>
-            <li class="flex justify-between text-gray-600">
-              <span>Notifications:</span>
-              <span class="font-semibold">Enabled</span>
-            </li>
-            <li class="flex justify-between text-gray-600">
-              <span>Language:</span>
-              <span class="font-semibold">English</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Button for editing profile -->
-      <div class="mt-6 flex justify-end">
-        <button data-modal-toggle="editProfileModal" class="px-4 py-2 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition">Edit Profile</button>
-      </div>
     </div>
-
-    <!-- Modal for editing profile -->
-    <div id="editProfileModal" tabindex="-1" aria-hidden="true" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
-      <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl font-semibold">Edit Profile</h3>
-          <button data-modal-toggle="editProfileModal" class="text-gray-600 hover:text-gray-800">×</button>
-        </div>
-        
-        <form action="#" method="POST">
-          <div class="mb-4">
-            <label for="username" class="block text-gray-600">Username</label>
-            <input id="username" type="text" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="john_doe">
-          </div>
-
-          <div class="mb-4">
-            <label for="email" class="block text-gray-600">Email</label>
-            <input id="email" type="email" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="john.doe@example.com">
-          </div>
-
-          <div class="mb-6">
-            <label for="password" class="block text-gray-600">Password</label>
-            <input id="password" type="password" class="w-full px-4 py-2 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          </div>
-
-          <div class="flex justify-end">
-            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Save Changes</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <!-- Flowbite Modal Toggle Script -->
-  <script>
-    const modal = document.getElementById('editProfileModal');
-    const modalToggleButton = document.querySelector('[data-modal-toggle="editProfileModal"]');
-
-    modalToggleButton.addEventListener('click', () => {
-      modal.classList.toggle('hidden');
-    });
-
-    // Close modal when the close button is clicked
-    const closeModalButton = modal.querySelector('button');
-    closeModalButton.addEventListener('click', () => {
-      modal.classList.add('hidden');
-    });
-  </script>
 </body>
-
 </html>

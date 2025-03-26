@@ -11,6 +11,7 @@ import menuRoute from './src/routes/menuRoutes.js'
 import orderRoute from './src/routes/orderRoutes.js'
 import cors from 'cors'
 import productsRoute from './src/routes/productsRoute.js'
+import profileRoute from './src/routes/profileRoute.js'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
@@ -82,18 +83,13 @@ async function connectDB() {
 app.use(menuRoute)
 app.use(orderRoute)
 app.use(productsRoute)
+app.use(profileRoute)
 
 app.get('/', (req, res) => {
     res.render('index.ejs', {user: req.user})
 })
 
-app.get('/profile', (req, res) => {
-    res.render('profile.ejs', {user: req.user})
-})
 
-app.delete('/profile', (req, res) => {
-
-})
 
 app.get('/login', (req, res) => {
     res.render('login.ejs')
