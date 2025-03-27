@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+/* VARIABLER SOM KAN NÅS MED: var() */
 :root {
     --green: #21a35f;
     --green-hover: #07944B;
@@ -8,6 +8,13 @@
     --white: #fff;
     }
 
+/* JAG VILL ATT WIDTH SKA VARA 100% oavsett,
+hade likagärna kunnat använda width här.
+Samma gäller höjden.
+Display: flex; ger mig properties som i detta fall jag använder:
+justify-content och align-items,
+dessa gör att elementen centreras på x-y axeln.
+*/
 #hero {
     min-width: 100%;
     min-height: 85vh;
@@ -16,6 +23,7 @@
     align-items: center;
 }
 
+/* space-evenly gör att mellanrummet fördelas jämt. */
 .hero-content {
     height: 70vh;
     width: 45%;;
@@ -24,6 +32,10 @@
     justify-content: space-evenly;
     align-items: center;
 }
+
+/* Använder vw för jag tycker den ger mig mest korrekta fontsizen,
+med korrekta menar jag att den ger mig mest responsivitet.
+*/
 .hero-content h1 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
@@ -32,7 +44,12 @@
     width: 100%;
 }
 
+/* overflow:hidden,
+det gör att allt som hamnar utanför elementet kommer försvinnas/ inte synas.
+Förklarar det lite mer vi nästa element
+*/
 #hero-pic {
+    border: 1px solid red;
     overflow: hidden;
     position: relative;
     height: 70vh;
@@ -41,6 +58,26 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Här är varför jag ville använda overflow-hidden.
+
+Eftersom img blir en fyrkant även fast själva bilden är rund.
+Detta kan man se med hjälpa av borders.
+När den sedan roterar kommer hörnen av img hamna utanför #hero-pic.
+Om jag inte skulle använda overflow:hidden; skulle 
+#hero-pic påverkas och röra på sig/expandera
+
+will-cange: transform; är inte så nödvändig i detta fall,
+ville bara testa och möjligtvis se någon skillnad.
+Den används ofta vid optimering av hemsidor.
+Iallafall så gör den att webbläsaren är "redo" på att
+img KAN "röra" sig/ändra sig.
+
+Eftersom webbläsaren är redo blir det inget "lagg"
+eller liknande.
+
+Dock ska detta användas som sista lösning.
+*/
 #hero-pic img {
     will-change: transform;
     width: 100%; 
@@ -49,17 +86,31 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* Detta är en media querie som gör att bilden är mindre på våra skoldatorer.
+Jag gör hemsida både på skoldatorn och hemma,
+Skärmen på skoldatorn har en width och height på: 1280x720
+Därför blir det lite skillnad när jag gör här hemma.
+*/
 @media (max-width: 1280px) {
     #hero-pic img {
         max-width: 350px; 
     }
 }
 
-
+/* Detta är animationen av bilden där bilden roteras 360 grader, alltså ett helt varv när man
+drar muspekaren över */
 #hero-pic img:hover {
     transform: rotate(360deg);
 }
+/* Man kan använda margin på lite olika sätt.
+1. margin: top right bottom left
+2. margin: top-bottom right-left
 
+I detta fall så blir margin applicerad på right-left
+Det går likagärna bra att använda t.ex
+margin-right och margin-left.
+Men med denna metod går det lite snabbare
+*/
 .customers {
     width: 80%;
     height: 10vh;
@@ -67,6 +118,7 @@
     align-items: center;
     margin: 0 10%;
 }
+
 
 .customer {
     position: relative;
@@ -82,18 +134,33 @@
     margin-left: 10%;
     font-size: 1.2vw;
 }
+
+/* Här ville jag exprimentera med clamp()
+som kan hjälpa med responsivitet av en hemsida.
+
+clamp(minsta värde, optimala (oftast en responsiv enhet), högsta värde)
+
+*/
 .customer img {
     position: absolute;
     width: clamp(32px, 3vw, 64px);
     height: auto;
 }
 
+/* Här fick jag leka runt lite med position:absolute;
+left: 12% gör att den är 12% från vänster.
+%-tecknet innebär i detta fallet -> 12% av föräldrarelementets bredd.
+I detta fall 12% av 8vw
+
+Z-index handlar om vilket "layer" elementet ska ligga på".
+
+*/
 .customer img:nth-of-type(1) {
     z-index: 300;
     position: absolute;
     left: 12%;
 }
-
+/* Här ligger detta element över det tidigare eftersom den har högre index */
 .customer img:nth-of-type(2) {
     z-index: 301;
     position: absolute;
@@ -113,10 +180,29 @@
     padding: 0px 0px;
     display: flex;
     align-items: center;
-
-
 }
 
+/* Intressantast här är "rem".
+Rem är en responsiv "enhet/unit"
+och skillnaden mellan "rem" och "em"
+är att "rem" går efter root's font-size
+medans "em" går för föräldrarelementets font-size.
+
+Rem:
+:root {
+    font-size=16px
+}
+
+font-size=1.2rem
+
+font-size=1.2 * 16px (root's font-size) // detta är hur uträkningen fungerar.
+
+I detta fall gör det inte så jättestor skillnad i responsiviteten.
+Helt enkelt skulle jag kunna använda px istället.
+Dock säger många att man ska använda mer responsiva units
+istället för px.
+
+*/
 .hero-btns button {
     padding: 2.5% 4%;
     border-radius: 16px;
@@ -133,10 +219,16 @@
     transition: all .2s ease-in-out;
 }
 
+/* transform: scale(1.05, 1.05) gör 
+att elementets width och height gångras med 1.05.
+Alltså blir 0.05% större än orginala storleken.
+
+*/
 .hero-btns button:nth-of-type(1):hover {
     transform: scale(1.05, 1.05);
     background-color: var(--green-hover);
 }
+
 
 .hero-btns button:nth-of-type(2) {
     background-color: transparent;
@@ -176,6 +268,10 @@
     align-items: center;
 }
 
+/* Cursor gör att muspekarn förändras.
+Man kan ändra den till olika.
+Pointer gör muspekaren till "hand".
+*/
 #arrow button {
     width: auto;
     height: auto;
@@ -184,6 +280,11 @@
     border: none;
 }
 
+/* Varför använder jag svg istället för img.
+SVG's är oftast mycket mer skalbara utan att ändra kvalite/inte bli suddigt.
+Medans images har en bestämd height och width i sin fil.
+
+*/
 #arrow button svg {
     fill: var(--green);
     transition: all .2s ease-in-out;
@@ -193,7 +294,9 @@
     fill: var(--green-hover);
 }
 
-
+/* Margin: auto; gör att elementet centreras horizontellt.
+    Dock behöver alltid föräldrarelementet en bestämd width.
+*/
 .popular-dishes {
     position: relative;
     width: 60%;
@@ -214,6 +317,18 @@
     }
 }
 
+/* font-size:bold; gör att texten blir fetare.
+Annars kan man anänvda siffror som t.ex 500, 600, 700 osv.
+Upp till 900 kan finnas.
+
+Som jag förklarade tidigare.
+Här är- 
+top: 40px
+right: 0px
+bottom: 60px
+left: 0px;
+
+*/
 .title-h1 {
     align-self: center;
     font-family: 'Montserrat';
@@ -221,7 +336,13 @@
     font-weight: bold;
     margin: 40px 0px 60px 0px;
 }
+/* max-content är att jag låter elementen innanför bestämda höjden.
+Alltså att de får ta så mycket plats som de vill.
+Detta för jag inte ska behöva mixtra med höjden om saker inte får plats.
+display:none; gör jag så att inte elementet syns.
+Varför är för att jag skapar en animation genom javascript i script-filen: "/js/script.js".
 
+*/
 .dishes {
     width: 100%;
     height: max-content;
@@ -230,18 +351,19 @@
     align-items: center;
 }
 
+/* animation som heter "fade".
+    Samt att animationen från start till slut ska ta 1.5 sekunder.
+*/
 .dishes-active {
     display: flex;
     animation-name: fade;
     animation-duration: 1.5s;
 }
-
-.prev{
-    left: 0;
-}
-.next{
-    right: 0;
-}
+/* Här gör jag en animation.
+Startvärdet på opacity: ska vara 0.5,
+sen efter 1.5 sekunder ska opacity vara 1
+Alltså fullt synligt
+*/
 @keyframes fade {
     from {opacity: .5}
     to {opacity: 1}
@@ -286,6 +408,10 @@
     color: #282828;
 }
 
+/* Gör så att det är en linje genom texten,
+A-taggar är t.ex alltid satt till text-decoration:underline;.
+Detta kan man ta bort genom att använda text-decoration:none;
+*/
 .ursprungligen span {
     text-decoration: line-through;
 }
@@ -296,6 +422,16 @@
     text-decoration: none;
 }
 
+/* Jag vill inte att button ska ha en färg, då jag vill att "svg" 
+bara ska synas.
+
+Varför jag just har en knapp där är jag lite fundersam i efterhand.
+Därför att knappen i sig uppfyller ingen särskild funktion,
+skulle därmed kunna använda bara en <a> tag.
+
+Dock är <button> ett semantisk element.
+Förklarar semantiska element i HTML.
+*/
 #add-button {
     margin: 12px 0px;
     border-radius: 50%;
@@ -369,7 +505,23 @@
     font-size: 3.5em;
     font-family: 'Montserrat';
 }
+/* Här använder jag display:grid; 
+Detta gör jag för att få tillgång till de andra två elementen.
 
+grid-template-columns: repeat(3, 1fr); =>
+gör att den skapar 3st kolumner.
+1fr gör att alla kolumner är lika stora/fördelas jämt av föräldrarelementets width.
+Man hade annars kunnat skrivit såhär:
+grid-template-columns: 1fr 1fr 1fr;
+Detta innebär samma sak.
+
+Och detta gäller samma sak då för     grid-template-rows: repeat(2, 1fr);
+bara att den skapar två rader.
+
+
+
+
+*/
 .location-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -393,7 +545,11 @@
     height: 400px;
     object-fit: cover;
 }
+/* 
+Här ändrar jag lite storlekar så att 
+den blir mer anpassad för mindre skrämar.
 
+*/
 @media screen and (max-width: 1280px) {
     .location {
         height: 180vh;
@@ -406,15 +562,46 @@
         width: 100%;
         height: 300px;
     }
-    .location-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-    }
+
 
 }
 .fig-card {
     position: relative;
 }
+
+/* Fig-caption är ett semantisk element.
+Semantisk element menas med att elementet kan läsas av
+webbläsaren.
+
+T.ex:
+Om jag skulle ha en <div class"om-mig"></div>
+skulle detta vara svårt för webbläsaren att tolka.
+
+I detta fall kanske man skulle använda <section></section>
+beroende på hur innehållet är strukturerat.
+
+Iallafall så förstår webbläsaren innebördet av <section></section>,
+alltså att det är en större sektion på hemsidan.
+
+Semantiska element brukar oftast använda inom SEO-anpassning för hemsidor.
+Vilket kanske inte behövs just nu men alltid roligt att lära något nytt.
+
+SEO fungerar såhär: 
+I princip har alla sökmotorer olika typer av botar som
+går igenom hela internet för att leta efter hemsidor och information.
+Dessa botar kan förstå semantiska element, och desto mer innehåll
+du har som de faktiskt kan förstå kan din sida rankas högre i en sökmotor.
+Med att rankas högre menar jag att hemsidan kan koppa upp som ett sökresultat tillslut.
+Det finns mycket mer för SEO-anpassning men detta är bara ett exempel.
+
+Detta gäller då alla element som:
+<figure></figure> => Används oftast för att rama in bilder/innehåll från hemsidan.
+<picture></picture> => Webbläsaren förstår att det är en bild
+<figcaption></figcaption> => Tillhör <figure> och somsagt en ytterligare text, i mitt fall
+plats.
+
+*/
+
 figcaption {
     align-items: flex-end;
     bottom: 10px;
@@ -502,18 +689,22 @@ figcaption {
 }
 
 
+/* Denna sektionen var nog det svåraste,
+eftersom den var lite mer komplexare,
+förklarar mer utförligt nedanför.
+*/
+
+
 .images {
     display: flex;
-    flex: 0;
-
     position: relative;
 }
 
 
 .image-btn {
+    border: 1px solid red;
     position: relative;
     display: flex;
-    flex: 1;
     align-items: flex-end;
     background-color: transparent;
     z-index: 9999;
@@ -522,7 +713,18 @@ figcaption {
 
 
 
+/* 
+Det som är märkvärdigt är hur jag får elementet jag vill.
+Jag får element positionerat med hjälp av position: absolute;
+Jag vill få elementet centrerat horizontelt.
 
+Då använder jag left: 50%:
+Det är samma sak som left: 1px;
+Eftersom 100% av föräldrarelementet är 2px
+transform: translate(-50%) => Då flyttar vi tillbaks 50% av elementet (Notera, inte föräldrarelement)
+
+
+*/
 .image-btn a {
     border: none;
     position: absolute;
@@ -541,7 +743,15 @@ figcaption {
     text-decoration: none;
     transition: all .3s ease-in-out;
 }
+/* 
+    Denna animationen var lite svår att göra.
+    När jag hoverar så ökar storleken av elementet, width och height med hjälp av scale.
+    Jag ökar padding då jag vill att elementet ska bli större.
+    Jag insåg att elementet inte täckte helt nedaför så jag 
+    "drar ner" elementet 10px.
+    jag satt båda hörnen högst upp till border-radius: 0;
 
+*/
 .image-btn:hover a {
     transform: scale(1.05, 1.05);
     padding:30px 212px;
@@ -552,7 +762,7 @@ figcaption {
     border-top-left-radius: 0;
     font-size: 1.5em;
 }
-
+/* Dessa är tagna från "http://css-shape.com/inverted-radius/" */
 .image {
     width: 250px;
     height: 400px;
@@ -610,6 +820,7 @@ figcaption {
   
 }
 
+
 .image img {
     width: 100%;
     height: 400px;
@@ -625,14 +836,7 @@ figcaption {
 .images img:nth-of-type(2) {
     height: 300px;
 }
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-    .images {
-        grid-template-columns: 1fr;
-    }
-}
+
 /* FOOTER */
 .footer {
     background-color: #fff;
@@ -647,11 +851,34 @@ figcaption {
     margin: auto;
 }
 
+/* Anpassning av footer på skoldatorskärmar */
 @media screen and (max-width: 1280px) {
     .container {
         max-width: 1200px;
     }
 }
+
+/* Flex-wrap: wrap; gör att element flyttas ner
+om de inte får plats.
+
+Standard för detta är flex-wrap: nowrap;
+Här vill jag också förklara varför det inte är bra att inte sätta en specifik höjd på detta
+element samt föräldrar elementet.
+Om jag skulle sätta en bestämd height skulle inte flex-wrap fungera som förväntat.
+Höjden i detta fall skulle förstöra strukturen då, exempel nu:
+
+.footer-top {
+    height: 50vh; <-------------
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+} 
+
+Då skulle höjden vara 50vh även fast ett element flyttas ner.
+Som standard blir elementent samma höjd som elementen innanför totalt.
+
+*/
 .footer-top {
     display: flex;
     justify-content: space-between;
@@ -733,7 +960,6 @@ hr {
 }
 
 .icon {
-    display: inline-block;
     width: 30px;
     height: 30px;
     background-color: #ddd;

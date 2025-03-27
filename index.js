@@ -17,15 +17,18 @@ import 'dotenv/config'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
+const DB_CONNECTION = 'mongodb+srv://lovegu2007:hGCbG5GIvkHX8CA8@kundhemsida.crc7f6n.mongodb.net/Kundhemsida'
+
+
 configurePassport()
 
 const store = new MongoDBStore({
-    uri: process.env.DB_CONNECTION,
+    uri: DB_CONNECTION,
     collection: 'sessions'
 })
 
 const cartStore = new MongoDBStore({
-    uri: process.env.DB_CONNECTION,
+    uri: DB_CONNECTION,
     collection: 'carts'
 })
 
@@ -74,7 +77,7 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.DB_CONNECTION)
+        await mongoose.connect(DB_CONNECTION)
         console.log('MongoDB: Running')
     }
     catch(e) {
