@@ -1,7 +1,12 @@
+async function getData() {
+    const response = await fetch('/api/meny');
+    const products = await response.json();
+    return products
+}
+
 async function fetchData() {
     try {
-        const response = await fetch('/api/meny');
-        const products = await response.json();
+        const products = await getData()
         const productTitles = document.querySelectorAll('#product-title')
         const productDescriptions = document.querySelectorAll('#description')
         const productPrices = document.querySelectorAll('#product-price')
@@ -58,6 +63,7 @@ async function fetchData() {
         console.error("Fel vid hämtning av data", error);
     }
 }
+
 
 fetchData();
 

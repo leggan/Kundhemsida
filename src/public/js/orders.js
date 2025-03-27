@@ -55,7 +55,9 @@ document.body.addEventListener("click", async function (e) {
             },
             body: JSON.stringify({targetIndex, productId}),
         })
+
         const data = await response.json()
+        
     }
 });
 

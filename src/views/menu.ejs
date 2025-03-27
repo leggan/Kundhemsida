@@ -6,13 +6,18 @@
     <title>Document</title>
     <link href="/css/navbar.css" rel="stylesheet">
     <link href="/css/menu.css" rel="stylesheet"> 
+    <link href="/css/popup.css" rel="stylesheet">
+
     <script src="/js/script.js" defer></script>
-    <script src="/js/products.js"></script>
-    <script src="/js/cart.js"></script>
+    <script src="/js/products.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <script src="/js/popup.js" defer></script>
+    <script src="/js/menu.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
+    <div id="popup-message" class="hidden"></div>
     <header>
         <nav>
           <img src="/img/logo.png" id="logo">
@@ -206,7 +211,7 @@
                     <p id="description"></p>
                     <div class="gallery-properties">
                         <h3 id="product-price"></h3>
-                        <button type="button" id="add-button">
+                        <button type="button" id="add-button"> 
                             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" id="add-icon">
                                 <!-- Fylld grön cirkel -->
                                 <circle cx="480" cy="-480" r="400" fill="#21a35f"/>

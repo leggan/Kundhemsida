@@ -34,6 +34,7 @@ productsRoute.post('/api/removeProduct', async (req, res) => {
                 products.splice(index, 1)
                 req.session.products = products 
                 req.session.save()
+                return res.json({Boolean: true})
             }
         }
     } catch (error) {

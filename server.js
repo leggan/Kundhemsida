@@ -12,18 +12,20 @@ import orderRoute from './src/routes/orderRoutes.js'
 import cors from 'cors'
 import productsRoute from './src/routes/productsRoute.js'
 import profileRoute from './src/routes/profileRoute.js'
+import 'dotenv/config'
+
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
 configurePassport()
 
 const store = new MongoDBStore({
-    uri: 'mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida',
+    uri: process.env.DB_CONNECTION,
     collection: 'sessions'
 })
 
 const cartStore = new MongoDBStore({
-    uri: 'mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida',
+    uri: process.env.DB_CONNECTION,
     collection: 'carts'
 })
 
@@ -72,7 +74,7 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
-        await mongoose.connect('mongodb+srv://lovegu2007:b81TfgWxbQFWU6NW@kundhemsida.crc7f6n.mongodb.net/Kundhemsida')
+        await mongoose.connect(process.env.DB_CONNECTION)
         console.log('MongoDB: Running')
     }
     catch(e) {
