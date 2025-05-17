@@ -67,6 +67,7 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
+        console.log('MongoDB URI:', DB_CONNECTION) // tillfällig debug
         await mongoose.connect(DB_CONNECTION)
         console.log('MongoDB: Running')
     }
