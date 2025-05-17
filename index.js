@@ -17,7 +17,7 @@ import 'dotenv/config'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
-const DB_CONNECTION = 'mongodb+srv://lovegu2007:hGCbG5GIvkHX8CA8@kundhemsida.crc7f6n.mongodb.net/Kundhemsida'
+const DB_CONNECTION = 'mongodb+srv://lovegu2007:P5OIW9U7oiDpimB5@cluster0.p3nvuhf.mongodb.net/Kundhemsida'
 
 
 configurePassport()
@@ -105,34 +105,6 @@ app.post('/login', passport.authenticate('local',{
     failureRedirect: '/login',
 }), (req, res) => {
 
-})
-
-app.get('/register', (req, res) => {
-    res.render('register.ejs')
-})
-
-app.post('/register', async (req, res) => {
-    const username = req.body.username
-    const email = req.body.email
-    console.log(`EMAILADDRESS: ${email}`)
-    try {
-        const findEmailUser = await User.findOne({email: email})
-        const usernameUser = await User.findOne({username: username })
-        if(usernameUser && findEmailUser) {
-            return res.json({message: 'Användarnament och emailaddressen är upptagen.'})
-        }
-        if(findEmailUser){
-            return res.json({message: 'Emailaddressen är redan registrerad'})
-        }
-        if(usernameUser) {
-            return res.json({message: 'Användarnamnet är upptaget'})
-        }
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const newUser = await User.create({username: username, email: email, password: hashedPassword})
-        return res.redirect(301, '/login');
-    } catch (error) {
-        return res.status(500).send({ message: error.message || "Internal Server Error" });
-    }
 })
 
 

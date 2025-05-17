@@ -49,7 +49,6 @@ det gör att allt som hamnar utanför elementet kommer försvinnas/ inte synas.
 Förklarar det lite mer vi nästa element
 */
 #hero-pic {
-    border: 1px solid red;
     overflow: hidden;
     position: relative;
     height: 70vh;
@@ -702,7 +701,6 @@ förklarar mer utförligt nedanför.
 
 
 .image-btn {
-    border: 1px solid red;
     position: relative;
     display: flex;
     align-items: flex-end;
