@@ -67,10 +67,7 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
-        await mongoose.connect(DB_CONNECTION, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
+        await mongoose.connect(DB_CONNECTION)
         console.log('MongoDB: Running')
     }
     catch(e) {
