@@ -35,7 +35,7 @@
 /* Select buttons styles */
 
 .select-container {
-    border: 1px solid red;
+    
     width: 20vw;
     display: flex;
     flex-wrap: wrap;
@@ -125,7 +125,8 @@
     }
 }
 .gallery-item {
-    border: 1px solid red;
+    border: 1px solid var(--green);
+    border-radius: 10px;
     width: 400px;
     height: 400px;
     display: flex;
@@ -145,7 +146,7 @@
 .gallery-item #description {
     padding: 10px;
     flex: 1;
-    border: 1px solid red;
+    
 }
 
 
@@ -169,7 +170,7 @@ color: var(--star-color)
 }
 
 .gallery-properties {
-    border: 1px solid red;
+    
     padding: 10px;
     display: flex;
     align-items: center; 
@@ -192,7 +193,7 @@ color: var(--star-color)
     background-color: transparent;
     cursor: pointer;
     z-index: 99999;
-    border: 1px solid red;
+    
 }
 
 #add-icon {
