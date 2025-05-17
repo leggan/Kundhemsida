@@ -67,7 +67,10 @@ app.use((req, res, next) => {
 
 async function connectDB() {
     try {
-        await mongoose.connect(DB_CONNECTION)
+        await mongoose.connect(DB_CONNECTION, {
+            tlsAllowInvalidCertificates: false,
+            tlsInsecure: false
+        })
         console.log('MongoDB: Running')
     }
     catch(e) {
