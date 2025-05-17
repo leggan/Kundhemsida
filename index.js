@@ -74,7 +74,7 @@ async function connectDB() {
         console.log(`MongoDB: ${e}`)
     }
 }
-
+console.log(process.env.MONGODB_URI)
 app.use(menuRoute)
 app.use(orderRoute)
 app.use(productsRoute)
