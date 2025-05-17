@@ -64,17 +64,6 @@ app.use((req, res, next) => {
 })
 
 
-app.use((req, res, next) => {
-    console.log(`PATH: ${req.path}`)
-    console.log(`METHOD: ${req.method}`)
-    console.log(`REQ SESSION: ${JSON.stringify(req.session)}`)
-    console.log(`AUTHENTICATED: ${req.isAuthenticated()}`)
-    console.log(`REQ USER: ${req.user ? req.user: 'Nothing'}`)
-    console.log(req.session.productId || 'Odefinerad')
-    console.log(`_______________________________`)
-    next()
-})
-
 
 async function connectDB() {
     try {
