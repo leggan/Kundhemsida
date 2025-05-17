@@ -17,7 +17,8 @@ import 'dotenv/config'
 const {userSchema, User} = UserModel
 const MongoDBStore = connectMongoDBSession(session)
 
-const DB_CONNECTION = 'mongodb+srv://lovegu2007:P5OIW9U7oiDpimB5@cluster0.p3nvuhf.mongodb.net/Kundhemsida'
+const DB_CONNECTION = process.env.MONGODB_URI
+const PORT = process.env.PORT || 3000;
 
 
 configurePassport()
@@ -125,7 +126,7 @@ app.post('/logout', (req, res) => {
 
 
 
-app.listen(3000, async () => {
-    console.log("Server is running on port: 3000")
+app.listen(PORT, async () => {
+    console.log(`Server is running on port: ${PORT}`)
     await connectDB()
 })
