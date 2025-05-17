@@ -68,8 +68,8 @@ app.use((req, res, next) => {
 async function connectDB() {
     try {
         await mongoose.connect(DB_CONNECTION, {
-            tlsAllowInvalidCertificates: false,
-            tlsInsecure: false
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         })
         console.log('MongoDB: Running')
     }
