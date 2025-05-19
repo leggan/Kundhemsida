@@ -68,7 +68,12 @@ app.use((req, res, next) => {
 async function connectDB() {
     try {
         console.log('MongoDB URI:', DB_CONNECTION) // tillfällig debug
-        await mongoose.connect(DB_CONNECTION)
+        await mongoose.connect(DB_CONNECTION, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            ssl: true,
+            sslValidate: false // Om certifikatet inte är CA-signerat (vanligt hos Render eller Atlas)
+        })
         console.log('MongoDB: Running')
     }
     catch(e) {

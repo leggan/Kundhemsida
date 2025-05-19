@@ -10,16 +10,31 @@
   <script src="/js/script.js" defer></script>
 </head>
 <body>
+  <!-- Här börjar navbar -->
   <header>
     <nav>
       <img src="/img/logo.png" id="logo">
+      <!-- En unorded list för att sedan lägga in li-items -->
       <ul id="ul-nav">
+        <!-- Med hjälp av backend kan jag skapa olika routes,
+        '/' -> Kan man säga är "hem"-sidan
+        '/Meny' -> är för menyn
+        -->
         <li><a href="/">Hem</a></li>
         <li><a href="/meny">Meny</a></li>
       </ul>
+      <!-- EJS är exakt som html, skilladen är att jag kan direkt
+      skicka data från backend till frontend
+
+      Sedan kan jag som jag gjorde här nere, lägga en if-sats
+      -->
+      <!-- Här kollar den om user existeras, ifall den gör det
+        Kommer profil-knappen att synas (Alltså, om du är inloggad
+        vill du inte att en login knapp ska synas, utan bara en profil)
+    -->
       <% if (user) { %>
         <div class="profile-container">
-          <!-- Profilknapp -->
+          <!-- Profilknappen -->
           <button id="profile-btn" class="profile-button">
               <img class="avatar" src="/img/user-avatar.png" alt="User photo">
           </button>
@@ -27,6 +42,11 @@
           <!-- Dropdown-meny -->
           <div id="profile-dropdown" class="dropdown-menu hidden">
               <div class="dropdown-header">
+                <!-- Här skickas ytterligare data 
+                Jag skickade med ett helt objekt, alltså user
+                User är en array, vilket betyder att user innehåller mer data
+                som t.ex username, email osv.
+                -->
                   <p class="user-name"><%= user.username %></p>
                   <p class="user-email"><%= user.email %></p>
               </div>
@@ -39,7 +59,7 @@
               </div>
           </div>
       </div>
-  
+      <!-- Ifall personen inte är inloggad, då kommer login-knappen att synas -->
       <% } else { %>
         <a href="/login">
           <button type="submit" id="login-btn">Logga in</button>
@@ -47,6 +67,7 @@
       <% } %>
     </nav>
   </header>
+  <!-- Hero-sektionen -->
   <section id="hero">
     <div class="hero-content">
       <h1>Njut av din 
@@ -309,7 +330,9 @@
             </div>
         </div>
     </footer>
+    
     <script>
+  
       document.querySelector('.sign-out').addEventListener('click', async () => {
     try {
         const response = await fetch('/logout', { method: 'POST', credentials: 'include' });
